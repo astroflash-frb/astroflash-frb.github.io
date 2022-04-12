@@ -1,0 +1,28 @@
+{{ define "header_css" }}{{ end }}
+{{ define "body_classes" }}page-services-list{{ end }}
+{{ define "header_classes" }}{{ end }}
+
+{{ define "main" }}
+
+{{ partial "hero-image-setheight.html" (dict "background" .Params.heroBackground "heading" .Params.heroHeading "subheading" .Params.heroSubHeading "content" .)}}
+{{ if .Content }}
+<div class="pt-6 pt-md-10">
+  <div class="row">
+    <div class="col-4">
+      <div class="page-intro">
+        {{ .Content }}
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
+
+
+<div class="container">
+    <div class="row justify-content-center" style="display:flex; max-width: 100%; flex-wrap: wrap;">
+        {{ range .Pages.ByWeight }}
+                {{ .Render "summary" }}
+        {{ end }}
+    </div>
+</div>
+{{ end }}

@@ -1,0 +1,34 @@
+
+
+Subject: VLBI localization of FRB 20201124A and absence of persistent emission on milliarcsecond scales
+
+
+B. Marcote (JIVE), F. Kirsten (Chalmers/OSO), J. W. T. Hessels (ASTRON, U. of Amsterdam), K. Nimmo (ASTRON, U. of Amsterdam), A. Keimpema (JIVE), Z. Paragi (JIVE), U. Bach (MPIfR), M. Burgay (INAF OA-Cagliari), A. Corongiu (INAF OA-Cagliari), R. Feiler (NCU, Torun), O. Forssén (Chalmers/OSO), M. Gawronski (NCU, Torun), M. Giroletti (INAF/IRA), A. Gopinath (U. of Amsterdam), D. M. Hewitt (U. of Amsterdam), R. Karuppusamy (MPIfR), M. Kramer (MPIfR), O. S. Ould-Boukattine (U. of Amsterdam), M. Pilia (INAF OA-Cagliari), M. P. Snelders (U. of Amsterdam),  L. Spitler (MPIfR), G. Surcis (INAF OA-Cagliari), M. Trudu (INAF OA-Cagliari), J. Yang (Chalmers/OSO)
+
+
+
+
+
+We observed the field of FRB 20201124A (ATel #14497) as part of the <a href="https://www.ira.inaf.it/precise/Home.html">PRECISE project</a> with an ad-hoc interferometric array composed of dishes that are part of the European VLBI Network (EVN). We detected bursts in two epochs recorded on 10 April 2021 15:00-21:15UT (with six antennas: Onsala, Torun, Irbene, Westerbork, Noto, and Effelsberg; EVN project code EK048D, PRECISE project code PR153A) and on 19 April 2021 13:30-19:30UT (with nine antennas: Onsala, Torun, Irbene, Westerbork, Medicina, Svetloe, Badary, Sardinia, and Effelsberg; EVN project code EK048E, PRECISE project code PR156A) at a central frequency of 1.374 GHz and with bandwidths ranging from 128-256 MHz (depending on the antenna). J0502+2516 was used as a phase calibrator in a phase-referencing cycle of 4.5 min on target and 1.5 min on the calibrator.<br><br>
+
+We detected 13 bursts from FRB 20201124A in EK048D, which allowed us to localize the burst source, in a preliminary analysis, to the following position:<br><br>
+
+RA (J2000) = 05h08m03.5077s<br>
+DEC (J2000) = 26d03'38.504"
+<br><br>
+
+with an estimated uncertainty of about 4 milliarcseconds (mas) in each direction, dominated by signal-to-noise limitations. Any additional systematic shifts on the position are likely less than ~2 mas. The synthesized beam is 40 mas x 18.3 mas (PA = 50 deg). We note that this position is consistent with the localizations previously reported by ASKAP (ATel #14592), FAST (ATel #14518), VLA/realfast (ATel #14526), and uGMRT (ATel #14538).<br><br>
+
+Combining the data from the two observations, we produced a deep continuum radio image of the field with an rms noise level of 12 uJy/beam. No persistent emission above a 6-sigma confidence level is reported in an area of 10 x 10 arcsec. Given the shortest baseline in the array (Effelsberg-Westerbork; ~270 km), any emission on angular scales larger than >~140 mas is resolved out. This corresponds to a transverse size of >~260 pc at the redshift of the proposed host galaxy (z ~ 0.098; ATel #14516). Thus, the persistent emission detected on arcsec scales by the VLA (ATel #14549) and the GMRT (ATel #14529) must be of extended nature.<br><br>
+
+Five additional bursts were detected in EK048E and they are still under analysis. These results, together with a final analysis, will be presented in a forthcoming paper.<br><br>
+
+We thank the staff of all the EVN telescopes for operating these observations outside standard sessions.  The European VLBI Network is a joint facility of independent European, African, Asian, and North American radio astronomy institutes. Scientific results from data presented in this publication are derived from the following EVN project code: EK048. These data have been correlated using the SFXC software correlator at JIVE (The Netherlands).
+
+
+<a href=”https://www.ira.inaf.it/precise/20201124A.html”>Figure with the burst localization and the continuum map.</a>
+
+
+** This goes in the website **
+The left panel shows the EVN dirty image of the combined 13 bursts from FRB 20201124A (color image) with respect to the previously reported burst positions. The right panel shows the continuum map with no significant compact emission from the combined two EVN epochs (gray scale) with respect to the VLA and uGMRT persistent source positions, and the optical galaxy from DSS (dotted contours). The position of FRB 20201124A is indicated by the black circle (where the uncertainty region has been extended by a factor of 20 to make it better visible).
+
