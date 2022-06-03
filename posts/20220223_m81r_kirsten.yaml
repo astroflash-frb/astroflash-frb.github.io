@@ -1,0 +1,11 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+title: A repeating fast radio burst source in a globular cluster
+author: Franz
+date: 2022-02-23
+category: paper
+image: 2022Natur.602..585K.jpg
+link: https://ui.adsabs.harvard.edu/abs/2022Natur.602..585K/abstract
+reference: Kirsten, F., Marcote, B., Nimmo, K., et al., 2022, Nature, Volume 602, Issue 7898, p.585-589
+body: Fast radio bursts (FRBs) are flashes of unknown physical origin1. The majority of FRBs have been seen only once, although some are known to generate multiple flashes. Many models invoke magnetically powered neutron stars (magnetars) as the source of the emission. Recently, the discovery6 of another repeater (FRB 20200120E) was announced, in the direction of the nearby galaxy M81, with four potential counterparts at other wavelengths6. Here we report observations that localized the FRB to a globular cluster associated with M81, where it is 2 parsecs away from the optical centre of the cluster. Globular clusters host old stellar populations, challenging FRB models that invoke young magnetars formed in a core-collapse supernova. We propose instead that FRB 20200120E originates from a highly magnetized neutron star formed either through the accretion-induced collapse of a white dwarf, or the merger of compact stars in a binary system. Compact binaries are efficiently formed inside globular clusters, so a model invoking them could also be responsible for the observed bursts.

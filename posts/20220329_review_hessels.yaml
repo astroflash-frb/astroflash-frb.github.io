@@ -1,0 +1,11 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+title: Fast radio bursts at the down of the 2020s
+author: Jason
+date: 2022-03-29
+category: paper
+image: general.jpg
+link: https://ui.adsabs.harvard.edu/abs/2022A%26ARv..30....2P/abstract
+reference: Petroff, E., Hessels, J. W. T., Lorimer, D. R., A&ARv, Volume 30, Issue 1, article id.2.
+body: Since the discovery of the first fast radio burst (FRB) in 2007, and their confirmation as an abundant extragalactic population in 2013, the study of these sources has expanded at an incredible rate. In our 2019 review on the subject, we presented a growing, but still mysterious, population of FRBs—60 unique sources, 2 repeating FRBs, and only 1 identified host galaxy. However, in only a few short years, new observations and discoveries have given us a wealth of information about these sources. The total FRB population now stands at over 600 published sources, 24 repeaters, and 19 host galaxies. Higher time resolution data, sustained monitoring, and precision localisations have given us insight into repeaters, host galaxies, burst morphology, source activity, progenitor models, and the use of FRBs as cosmological probes. The recent detection of a bright FRB-like burst from the Galactic magnetar SGR 1935 + 2154 provides an important link between FRBs and magnetars. There also continue to be surprising discoveries, like periodic modulation of activity from repeaters and the localisation of one FRB source to a relatively nearby globular cluster associated with the M81 galaxy. In this review, we summarise the exciting observational results from the past few years. We also highlight their impact on our understanding of the FRB population and proposed progenitor models. We build on the introduction to FRBs in our earlier review, update our readers on recent results, and discuss interesting avenues for exploration as the field enters a new regime where hundreds to thousands of new FRBs will be discovered and reported each year.

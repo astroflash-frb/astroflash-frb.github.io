@@ -1,0 +1,11 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+title: Burst timescales and luminosities as links between young pulsars and fast radio bursts
+author: Kenzie
+date: 2022-02-23
+category: paper
+image: 2022NatAs...6..393N.jpg
+link: https://ui.adsabs.harvard.edu/abs/2022NatAs...6..393N/abstract
+reference: Nimmo, K., Hessels, J. W. T., Kirsten, F., et al. 2022, Nature Astronomy, Volume 6, p. 393-401
+body: Fast radio bursts (FRBs) are extragalactic radio flashes of unknown physical origin. Their high luminosities and short durations require extreme energy densities, such as those found in the vicinity of neutron stars and black holes. Studying the burst intensities and polarimetric properties on a wide range of timescales, from milliseconds down to nanoseconds, is key to understanding the emission mechanism. However, high-time-resolution studies of FRBs are limited by their unpredictable activity levels, available instrumentation and temporal broadening in the intervening ionized medium. Here we show that the repeating FRB 20200120E can produce isolated shots of emission as short as about 60 nanoseconds in duration, with brightness temperatures as high as 3 × 10^41 K (excluding relativistic effects), comparable with `nano-shots' from the Crab pulsar. Comparing both the range of timescales and luminosities, we find that FRB 20200120E observationally bridges the gap between known Galactic young pulsars and magnetars and the much more distant extragalactic FRBs. This suggests a common magnetically powered emission mechanism spanning many orders of magnitude in timescale and luminosity. In this Article, we probe a relatively unexplored region of the short-duration transient phase space; we highlight that there probably exists a population of ultrafast radio transients at nanosecond to microsecond timescales, which current FRB searches are insensitive to.

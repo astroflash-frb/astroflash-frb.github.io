@@ -1,0 +1,11 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+title: A repeating fast radio burst source localized to a nearby spiral galaxy
+author: Benito
+date: 2020-01-06
+category: paper
+image: 2020Natur.577..190M.jpg
+link: https://ui.adsabs.harvard.edu/abs/2020Natur.577..190M/abstract
+reference: Marcote, B., Nimmo, K., Hessels, J. W. T., et al. 2020, Nature, Volume 577, Issue 7789, p.190-194
+body: "Fast radio bursts (FRBs) are brief, bright, extragalactic radio flashes. Their physical origin remains unknown, but dozens of possible models have been postulated. Some FRB sources exhibit repeat bursts. Although over a hundred FRB sources have been discovered, only four have been localized and associated with a host galaxy, and just one of these four is known to emit repeating FRBs. The properties of the host galaxies, and the local environments of FRBs, could provide important clues about their physical origins. The first known repeating FRB, however, was localized to a low-metallicity, irregular dwarf galaxy, and the apparently non-repeating sources were localized to higher-metallicity, massive elliptical or star-forming galaxies, suggesting that perhaps the repeating and apparently non-repeating sources could have distinct physical origins. Here we report the precise localization of a second repeating FRB source, FRB 180916.J0158+65, to a star-forming region in a nearby (redshift 0.0337 ± 0.0002) massive spiral galaxy, whose properties and proximity distinguish it from all known hosts. The lack of both a comparably luminous persistent radio counterpart and a high Faraday rotation measure6 further distinguish the local environment of FRB 180916.J0158+65 from that of the single previously localized repeating FRB source, FRB 121102. This suggests that repeating FRBs may have a wide range of luminosities, and originate from diverse host galaxies and local environments."

@@ -1,0 +1,11 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+title: The 60 pc Environment of FRB 20180916B
+author: Marcote
+date: 2021-02-11
+category: paper
+image: 2021ApJ...908L..12T.jpg
+link:  https://ui.adsabs.harvard.edu/abs/2021ApJ...908L..12T/abstract
+reference: Tendulkar, S. P., Gil de Paz, A., Kirichenko, A. Y., et al. 2021, The Astrophysical Journal Letters, Volume 908, Issue 1, id.L12, 11 pp.
+body: "Fast radio burst FRB 20180916B in its host galaxy SDSS J015800.28+654253.0 at 149 Mpc is by far the closest-known FRB with a robust host galaxy association. The source also exhibits a 16.35 day period in its bursting. Here we present optical and infrared imaging as well as integral field spectroscopy observations of FRB 20180916B with the WFC3 camera on the Hubble Space Telescope and the MEGARA spectrograph on the 10.4 m Gran Telescopio Canarias. The 60-90 milliarcsecond (mas) resolution of the Hubble imaging, along with the previous 2.3 mas localization of FRB 20180916B, allows us to probe its environment with a 30-60 pc resolution. We constrain any point-like star formation or H II region at the location of FRB 20180916B to have an Hα luminosity LHα ≲ 1037 erg s-1, and we correspondingly constrain the local star formation rate to be ≲10-4 M⊙ yr-1. The constraint on Hα suggests that possible stellar companions to FRB 20180916B should be of a cooler, less massive spectral type than O6V. FRB 20180916B is 250 pc away (in projected distance) from the brightest pixel of the nearest young stellar clump, which is ∼380 pc in size (FWHM). With the typical projected velocities of pulsars, magnetars, or neutron stars in binaries (60-750 km s-1), FRB 20180916B would need 800 kyr to 7 Myr to traverse the observed distance from its presumed birth site. This timescale is inconsistent with the active ages of magnetars (≲10 kyr). Rather, the inferred age and observed separation are compatible with the ages of high-mass X-ray binaries and gamma-ray binaries, and their separations from the nearest OB associations."

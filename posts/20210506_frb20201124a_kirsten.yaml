@@ -1,0 +1,11 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+title: Two bright bursts from FRB 20201124A with the Onsala 25-m telescope at 1.4 GHz, with no simultaneous emission detected at 330 MHz with Westerbork 25-m
+author: Franz
+date: 2021-05-06
+category: atel
+image: 2021ATel14605....1K.png
+link: https://ui.adsabs.harvard.edu/abs/2021ATel14605....1K/abstract
+reference: Kirsten, F., Ould-Boukattine, O. S., Nimmo, K., et al., 2021, The Astronomer's Telegram, No. 14605
+body: We are running a multi-telescope, multi-band observing campaign on the recently announced fast radio burst source FRB 20201124A (ATel \#14497). The participating stations are the 25-m telescope at Onsala Space Observatory (OSO, observing between 1360-1488 MHz), the 25-m dish at Westerbork RT1 (300-364 MHz) and the 32-m telescope in Torun (4550-4806 MHz).

@@ -1,0 +1,11 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+title: A LOFAR high time resolution search for radio bursts from SGR 1935+2154
+author: Cees 
+date: 2020-05-03
+category: atel
+image: 2020ATel13707....1B.png
+link: https://ui.adsabs.harvard.edu/abs/2020ATel13707....1B/abstract
+reference: Bassa, C., Hessels, J. W. T., Kondratiev, V., et al. 2020, The Astronomer's Telegram, No. 13707
+body: We report on a non-detection of radio bursts from the soft gamma-ray repeater SGR 1935+2154 with LOFAR. These LOFAR observations had the goals of i. studying the detailed morphology of the radio bursts in order to potentially compare with the characteristic time-frequency structure seen in repeating FRBs (Hessels et al. 2019) and ii. studying interstellar scattering along this line of sight.

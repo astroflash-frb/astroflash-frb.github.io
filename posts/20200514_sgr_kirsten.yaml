@@ -1,0 +1,11 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+title: Simultaneous multi-frequency limits on radio emission at the time of a bright X-ray burst from SGR 1935+2154
+author: Franz
+date: 2020-05-14
+category: atel
+image: general.jpg
+link: https://ui.adsabs.harvard.edu/abs/2020ATel13735....1K/abstract
+reference: Kirsten, F., Jenkins, M., Snelders, M., et al. 2020, The Astronomer's Telegram, No. 13735
+body: "GCN circulars GCN #27714 and #27715 reported two bright X-ray bursts from the currently active magnetar SGR 1935+2154 (ATel #13681, #13684, #13685) detected on May 10 at UT 06:12:02.624 and UT 21:51:17.280."

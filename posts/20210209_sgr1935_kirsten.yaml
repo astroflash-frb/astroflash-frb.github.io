@@ -1,0 +1,11 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+title: Upper limits on the radio fluence of the most recent X-ray bursts from SGR1935+2154
+author: Franz
+date: 2021-02-09
+category: atel
+image: general.jpg
+link: https://ui.adsabs.harvard.edu/abs/2021ATel14382....1K/abstract
+reference: Kirsten, F., Eijnden, J. van den, Snelders, M., et al., 2021, The Astronomer's Telegram, No. 14382.
+body: All of Fermi GBM, Konus Wind, GECAM, and Swift-BAT reported several bright bursts during the recent X-ray activity of SGR1935+2154 (GCN circulars GCN #29363, #29365, #29373, #29374, #29388 and ATel #14359).

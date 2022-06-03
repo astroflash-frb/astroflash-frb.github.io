@@ -1,0 +1,11 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+title: Subsequent detection of three more bursts from FRB 20201124A using the Westerbork-RT1 25-m telescope
+author: Omar
+date: 2022-01-29
+category: atel
+image: 2022ATel15192....1O.png
+link: https://ui.adsabs.harvard.edu/abs/2022ATel15192....1O/abstract
+reference: Ould-Boukattine, O. S., Kirsten, F., Nimmo, K., et al., 2022, The Astronomer's Telegram, No. 15192.
+body: Following ATel \#15190, we report the subsequent detection of three additional bursts from FRB 20201124A using the Westerbork-RT1 25-m telescope. Observations were done at a central frequency of 1323.49 MHz using a bandwidth of 128 MHz. We use a DM of 410.775 pc cm^-3, as determined in our analysis of bursts discovered using the Onsala telescope.

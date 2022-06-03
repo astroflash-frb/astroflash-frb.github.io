@@ -1,0 +1,11 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+title: VLBI localization of FRB 20201124A and absence of persistent emission on milliarcsecond scales
+author: Benito 
+date: 2021-05-05
+category: atel
+image: 2021ATel14603....1M.jpg
+link: https://ui.adsabs.harvard.edu/abs/2021ATel14603....1M/abstract
+reference: Marcote, B., Kirsten, F., Hessels, J. W. T., et al., 2021, The Astronomer's Telegram, No. 14603.
+body: We observed the field of FRB 20201124A (ATel \#14497) as part of the PRECISE project with an ad-hoc interferometric array composed of dishes that are part of the European VLBI Network (EVN).

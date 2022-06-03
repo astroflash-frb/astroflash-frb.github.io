@@ -1,0 +1,11 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+title: New Post Title
+author: FirstName
+date: YYYY-MM-DD
+category: paper
+image: general.jpg
+link: ads-link
+reference: Name et al. 1999, Journal, issue, page
+body: Abstract

@@ -1,0 +1,11 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+title: Highly polarized microstructure from the repeating FRB 20180916B
+author: Kenzie 
+date: 2021-03-22
+category: paper
+image: 2021NatAs...5..594N.jpg"
+link: https://ui.adsabs.harvard.edu/abs/2021NatAs...5..594N/abstract 
+reference: Nimmo, K., Hessels, J. W. T., Keimpema, A., et al., 2021, Nature Astronomy, Volume 5, p. 594-603.
+body: Fast radio bursts (FRBs) are bright, coherent, short-duration radio transients of as-yet unknown extragalactic origin. FRBs exhibit a variety of spectral, temporal and polarimetric properties that can unveil clues into their emission physics and propagation effects in the local medium. Here, we present the high-time-resolution (down to 1 μs) polarimetric properties of four 1.7 GHz bursts from the repeating FRB 20180916B, which were detected in voltage data during observations with the European Very Long Baseline Interferometry Network. We observe a range of emission timescales that spans three orders of magnitude, with the shortest component width reaching 3-4 μs (below which we are limited by scattering). We demonstrate that all four bursts are highly linearly polarized (≳80%), show no evidence of significant circular polarization (≲15%), and exhibit a constant polarization position angle (PPA) during and between bursts. On short timescales (≲100 μs), however, there appear to be subtle PPA variations (of a few degrees) across the burst profiles. These observational results are most naturally explained in an FRB model in which the emission is magnetospheric in origin, in contrast to models in which the emission originates at larger distances in a relativistic shock.

@@ -1,0 +1,11 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+title: Periodic activity from a fast radio burst source
+author: Jason
+date: 2020-06-17
+category: paper
+image: 2020Natur.582..351C.jpg
+link: https://ui.adsabs.harvard.edu/abs/2020Natur.582..351C/abstract
+reference: CHIME/FRB Collaboration et al., 2020, Nature, Volume 582, Issue 7812, p.351-355
+body: "Fast radio bursts (FRBs) are bright, millisecond-duration radio transients originating from sources at extragalactic distances1, the origin of which is unknown. Some FRB sources emit repeat bursts, ruling out cataclysmic origins for those events2-4. Despite searches for periodicity in repeat burst arrival times on timescales from milliseconds to many days2,5-7, these bursts have hitherto been observed to appear sporadically and—although clustered8—without a regular pattern. Here we report observations of a 16.35 ± 0.15 day periodicity (or possibly a higher-frequency alias of that periodicity) from the repeating FRB 180916.J0158+65 detected by the Canadian Hydrogen Intensity Mapping Experiment Fast Radio Burst Project4,9. In 38 bursts recorded from 16 September 2018 to 4 February 2020 UTC, we find that all bursts arrive in a five-day phase window, and 50 per cent of the bursts arrive in a 0.6-day phase window. Our results suggest a mechanism for periodic modulation either of the burst emission itself or through external amplification or absorption, and disfavour models invoking purely sporadic processes."

@@ -1,0 +1,11 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+title: No Radio Bursts Detected from FIRST J141918.9+394036 in Green Bank Telescope Observations
+author: Kenzie
+date: 2020-04-30
+category: paper
+image: general.jpg
+link: https://ui.adsabs.harvard.edu/abs/2020RNAAS...4...50N/abstract
+reference: Nimmo, K., Gajjar, V., Hessels, J. W. T., et al. 2020, Research Notes of the AAS, Volume 4, Issue 4, id.50
+body: FRB 121102, the first-known repeating fast radio burst (FRB) source, is associated with a dwarf host galaxy and compact, persistent radio source. In an effort to find other repeating FRBs, FIRST J141918.9+394036 (hereafter FIRST J1419+3940) was identified in a search for similar persistent radio sources in dwarf host galaxies. FIRST J1419+3940 was subsequently identified as a radio transient decaying on timescales of decades, and it has been argued that it is the orphan afterglow of a long gamma-ray burst. FIRST J1419+3940 and FRB 121102's persistent radio source show observational similarities, though the latter appears to be stable in brightness. Nonetheless, if they have similar physical origins, then FIRST J1419+3940 may also contain a source capable of producing fast radio bursts. We report the non-detection of short-duration radio bursts from FIRST J1419+3940 during 3.1 h of observations with the 110-m Green Bank Telescope at both 2 and 6 GHz. FIRST J1419+3940 is 11 times closer compared with FRB 121102, and exhibits an optically-thin synchrotron spectrum above 1.4GHz; our search was thus sensitive to bursts more than 100 times weaker than those seen from FRB 121102. We encourage future burst searches to constrain the possible presence of an FRB-emitting source. Although such searches are high-risk, any such detection could greatly elucidate the origins of the FRB phenomenon.

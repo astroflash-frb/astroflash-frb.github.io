@@ -1,0 +1,11 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+title: A search for persistent radio emission and millisecond-duration radio bursts from SGR 1935+2154 using the European VLBI Network
+author: Kenzie
+date: 2020-06-06
+category: atel
+image: general.jpg
+link: https://ui.adsabs.harvard.edu/abs/2020ATel13786....1N/abstract
+reference: Nimmo, K., Marcote, B., Hessels, J. W. T., et al. 2020, The Astronomer's Telegram, No. 13786
+body: "We report on real-time European VLBI Network observations (e-EVN) of SGR 1935+2154 on 13 May 2020, following the recent bright radio burst detection (ATel #13681, ATel #13684)."
