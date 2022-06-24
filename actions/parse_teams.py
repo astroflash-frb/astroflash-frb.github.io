@@ -10,245 +10,234 @@ import datetime as dt
 import glob
 import yaml
 import traceback
+from pathlib import Path
 
-
-categories = {'paper': 'Papers', 'atel': 'ATels', 'talk': 'Talks'}
-
-class Post(object):
+class Researcher(object):
+    @property
+    def roles(self):
+        return {'leader': 'Group Leader', 'staff': 'Staff', 'postdoc': 'PostDoc', 'phd': 'PhD students',
+                'master': 'Master Students'}
 
     @property
-    def title(self):
-        return self._title
-
-    @title.setter
-    def title(self, new_par):
-        assert isinstance(new_par, str)
-        self._title = new_par
-
-    @property
-    def author(self):
-        return self._author
-
-    @author.setter
-    def author(self, new_par):
-        assert isinstance(new_par, str)
-        self._author = new_par
+    def social_media(self):
+        return {'github': {'a_class': 'github', 'i_class': 'fa fa-github'},
+                'gitlab': {'a_class': 'twt', 'i_class': 'fa fa-twitter'},
+                'facebook': {'a_class': 'fb', 'i_class': 'fa fa-facebook'},
+                'twitter': {'a_class': 'twt', 'i_class': 'fa fa-twitter'},
+                'linkedin': {'a_class': 'linkdin', 'i_class': 'fa fa-linkedin'},
+                'webpage': {'a_class': 'dribble', 'i_class': 'fa fa-dribbble'}}
 
     @property
-    def date(self):
-        return self._date
+    def name(self):
+        return self._name
 
-    @date.setter
-    def date(self, new_par):
-        assert isinstance(new_par, dt.date), \
-               f"The value {new_par} (from {self.title}) cannot be parsed into a datetime object."
-        self._date = new_par
-
-    @property
-    def category(self):
-        return self._category
-
-    @category.setter
-    def category(self, new_par):
-        assert (new_par in categories) or (new_par is None), \
-               f"{new_par} is not a valid category (accepted values: {categories.keys()})"
-        self._category = new_par
+    @name.setter
+    def name(self, new_name: str):
+        assert isinstance(new_name, str), f"The new name needs to be a str, instead of {new_name}."
+        self._name = new_name
 
     @property
-    def image(self):
-        return self._image
+    def filename(self):
+        """This is just the preffix used in all files relative to this researcher.
+        Likely just the surname, with no spaces (converted to underscore)
+        """
+        return self._filename
 
-    @image.setter
-    def image(self, new_par):
-        assert isinstance(new_par, str)
-        self._image = new_par
-
-    @property
-    def link(self):
-        return self._link
-
-    @link.setter
-    def link(self, new_par):
-        assert isinstance(new_par, str)
-        self._link = new_par
+    @filename.setter
+    def filename(self, new_filename):
+        self._filename = new_filename
 
     @property
-    def body(self):
-        return self._body
+    def role(self):
+        return self._role
 
-    @body.setter
-    def body(self, new_par):
-        assert isinstance(new_par, str)
-        self._body = new_par
+    @role.setter
+    def role(self, new_role: str):
+        assert new_role in self.roles, \
+               f"The new role {new_role} is not accepted. Possible values: {self.roles.keys()}"
+        self._role = new_role
 
     @property
-    def reference(self):
-        return self._reference
+    def institute(self):
+        return self._institute
 
-    @reference.setter
-    def reference(self, new_par):
-        assert isinstance(new_par, str)
-        if (len(new_par) > 0) and (new_par[-1] != '.'):
-            self._reference = new_par + '.'
+    @institute.setter
+    def institute(self, new_institute: str):
+        assert isinstance(new_institute, str), f"The new institute needs to be a str, instead of {new_institute}."
+        self._institute = new_institute
+
+    @property
+    def description(self):
+        return self._description
+
+    @description.setter
+    def description(self, a_description: str):
+        assert isinstance(a_description, str) or a_description is None, "The description needs to be a str."
+        if a_description is None:
+            self._description = ''
         else:
-            self._reference = new_par
+            self._description = a_description
 
-    def __init__(self, title=None, author=None, date=None, category=None, image=None, link=None,
-                 body=None, reference=None):
-        self._title = title
-        self._author = author
-        self._date = date
-        self.category = category
-        self._image = image
-        self._link = link
-        self._body = body
-        self._reference = reference
-
-    def format_post(self):
-        def linktype(a_link):
-            if 'adsabs' in a_link:
-                return 'in SAO/NASA ADS'
-            elif 'astronomerstelegram' in a_link:
-                return "in The Astronomer's Telegram"
-            elif 'gcn.gsfc' in a_link:
-                return 'in GCN Circulars'
-            else:
-                return 'it online'
-
-        return """<div class="col-lg-8 isotope-item {category}">
-				<div class="post">
-					<div class="post-image-wrapper">
-                        <img src="posts/{imgpath}" class="img-fluid" alt="" />
-						<span class="blog-date"> {date}</span>
-					</div>
-					<div class="post-header clearfix">
-						<h2 class="post-title">
-							<a href="blog-item.html">{title}</a>
-						</h2>
-						<div class="post-meta">
-							<span class="post-meta-author">Posted by <a href="team.html"> {author}</a></span>
-							<span class="post-meta-cats">in <a href="#"> {pubtype}</a></span>
-						</div>
-					</div>
-					<div class="post-body">
-						<p>{body}</p>
-                        <p>{reference}</p>
-					</div>
-					<div class="post-footer">
-						<a href="{url}" class="btn btn btn-outline-primary">See {linktype}
-                            <i class="fa fa-angle-double-right">&nbsp;</i>
-                        </a>
-					</div>
-				</div>
-            </div>
-            """.format(category=self.category, imgpath=self.image, date=self.date.strftime('%B %d, %Y'),
-                             title=self.title, author=self.author, pubtype=categories[self.category],
-                             body=self.body, reference=self.reference, url=self.link, linktype=linktype(self.link))
-
-
-
-class Posts(object):
-    """Posts
-    """
     @property
-    def posts(self):
-        return self._posts
+    def links(self):
+        """dict containing the different social media links.
+        The keys would be the different platforms, and the value the url to the personal account
+        """
+        return self._links
 
-    @posts.setter
-    def posts(self, posts):
-        assert isinstance(posts, list), "posts must be a list."
-        self._posts = posts
+    @links.setter
+    def links(self, links_dict):
+        assert isinstance(links_dict, dict), "Researcher.links needs to be a dict."
+        for a_key in links_dict:
+            assert a_key in self.social_media, \
+                   f"Only the following platforms are available for social media: {self.social_media.keys()}"
+        self._links = links_dict
 
-    def __init__(self, posts=None):
-        if posts is None:
-            self._posts = []
+    def add_link(self, platform, url):
+        """Adds a link to a social media platform.
+        The platform needs to be one of the accepted ones.
+        """
+        assert platform in self.social_media
+        self._links[platform] = url
+
+
+    def __init__(self, name=None, filename=None, role=None, institute=None, description=None, links=None):
+        self._name = name
+        self._filename = filename
+        self._role = role
+        self._institute = institute
+        self._description = description
+        if links is None:
+            self.links = dict()
         else:
-            self._posts = posts
+            self.links = links
 
-    def sorted(self, reverse=False):
-        if reverse:
-            return sorted(self._posts, key=lambda t: t.date)[::-1]
-        else:
-            return sorted(self._posts, key=lambda t: t.date)
 
-    def sort(self, reverse=False):
-        if reverse:
-            self._posts = sorted(self._posts, key=lambda t: t.date)[::-1]
-        else:
-            self._posts = sorted(self._posts, key=lambda t: t.date)
-
-    def append(self, a_post):
-        self._posts.append(a_post)
-
-    def categories(self):
-        cats = set()
-        for a_post in self.posts:
-            cats.add(a_post.category)
-
-        return cats
-
-    def get_posts(self, path='../posts/*.yaml', verbose=False):
-        all_posts = glob.glob(path)
-        all_posts.remove(all_posts[all_posts.index('../posts/template.yaml')])  # check if remove gets this input
-        if verbose:
-            print("Found the following blog posts:\n" + f"{all_posts}")
-        for a_post in all_posts:
-            with open(a_post, 'r') as postfile:
-                data = yaml.load(postfile, Loader=yaml.loader.SafeLoader)
-                if verbose:
-                    print(data)
-                post = Post()
-                post.title = data['title']
-                post.author = data['author']
-                post.date = data['date']
-                post.category = data['category']
-                post.image = data['image']
-                post.link = data['link']
-                post.reference = data['reference']
-                post.body = data['body']
-
-            self.append(post)
-
-    def format_posts(self):
-        s = ""
-        for a_post in self.posts:
-            s += a_post.format_post()
+    def format_social(self):
+        s = ''
+        s_template = '<a class="{a_class}" href="{url}"><i class="{i_class}"></i></a>\n'
+        for a_link in self.links:
+            s += s_template.format(a_class=self.social_media[a_link]['a_class'],
+                                   i_class=self.social_media[a_link]['i_class'], url=self.links[a_link])
 
         return s
 
 
-def format_menu(posts):
-    cats = posts.categories()
-    s = '<ul>\n<li><a href="portfolio-classic.html#" class="active" data-filter="*">All</a></li>'
-    for cat in cats:
-        s += f'<li><a href="portfolio-classic.html#" data-filter=".{cat}">{categories[cat]}</a></li>'
+    def format_person(self):
+        return """<div class="col-md-6">
+				<div class="team team-list wow slideInRight">
+					<div class="img-hexagon">
+						<img src="team/{filename}.jpg" alt="">
+						<span class="img-top"></span>
+						<span class="img-bottom"></span>
+					</div>
+					<div class="team-content">
+						<h3>{fullname}</h3>
+						<p>{institute}</p>
+                        <p class="desc">{description}</p>
+						<div class="team-social">
+                            {social}
+						</div>
+					</div>
+				</div>
+			</div>
+            """.format(filename=self.filename, fullname=self.name, institute=self.institute,
+                       description=self.description, social=self.format_social())
 
-    s += '</ul>'
-    return s
 
+class Researchers(object):
+    """A list of researchers
+    """
+    @property
+    def roles(self):
+        return {'leader': 'Group Leader', 'staff': 'Staff', 'postdoc': 'PostDoc', 'phd': 'PhD students',
+                'master': 'Master Students'}
 
-def merge_posts_in_html(posts, html_template, output_html):
-    assert os.path.isfile(html_template), f"The file {html_template} is not found."
-    with open(html_template, 'r') as template:
-        full_html = ''.join(template.readlines())
-        full_html = full_html.replace('{{template}}', posts.format_posts())
-        full_html = full_html.replace('{{menu}}', format_menu(posts))
+    @property
+    def researchers(self):
+        return sorted(self._researchers, key=lambda t: t.filename)
 
-    with open(output_html, 'w') as outhtml:
-        outhtml.write(full_html)
+    @researchers.setter
+    def researchers(self, list_of_researchers):
+        assert isinstance(list_of_researchers, list)
+        for a_researcher in list_of_researchers:
+            assert isinstance(a_researcher, Researcher)
+
+        self._researchers = list_of_researchers
+
+    def __init__(self, researchers=None):
+        if researchers is None:
+            self._researchers = []
+        else:
+            self._researchers = researchers
+
+    def with_role(self, role):
+        """Returns a list with the researchers within the specified role
+        """
+        assert role in self.roles, "Specified role not expected."
+        return [person for person in self.researchers if person.role == role]
+
+    def add_researcher(self, new_researcher):
+        assert isinstance(new_researcher, Researcher)
+        self._researchers.append(new_researcher)
+
+    def get_researchers(self, path='../team/*.yaml'):
+        all_people = glob.glob(path)
+        all_people.remove(all_people[all_people.index('../team/template.yaml')])
+        for one_person in all_people:
+            with open(one_person, 'r') as personfile:
+                data = yaml.load(personfile, Loader=yaml.loader.SafeLoader)
+                person = Researcher()
+                person.name = data['name']
+                person.filename = Path(one_person).stem
+                person.role = data['role']
+                person.institute = data['institute']
+                person.description = data['description']
+                for socialmedia in person.social_media:
+                    if socialmedia in data:
+                        person.add_link(socialmedia, data[socialmedia])
+
+            self.add_researcher(person)
+
+    def format_group(self, a_group):
+        assert a_group in self.roles
+        return f"""<div class="row">
+			<div class="col-md-12 heading">
+				<span class="title-icon classic float-left"><i class="fa fa-users"></i></span>
+				<h2 class="title classic">{self.roles[a_group]}</h2>
+			</div>
+		</div>\n"""
+
+    def merge_people_in_html(self, html_template, output_html):
+        assert os.path.isfile(html_template), f"The file {html_template} is not found."
+
+        s = ''
+        for a_role in self.roles:
+            s += '<div class="gap-60"></div>'
+            s += self.format_group(a_role)
+            s += '<div class="row">'
+            for person in self.with_role(a_role):
+                s += person.format_person()
+
+            s += '</div>\n<div class="gap-60"></div>'
+
+        with open(html_template, 'r') as template:
+            full_html = ''.join(template.readlines())
+            full_html = full_html.replace('{{content}}', s)
+
+        with open(output_html, 'w') as outhtml:
+            outhtml.write(full_html)
 
 
 def main():
     try:
-        p = Posts()
-        p.get_posts()
-        p.sort(reverse=True)
+        p = Researchers()
+        p.get_researchers()
+        p.merge_people_in_html('../templates/team_template.html', '../team.html')
     except:
-        print('*** Error occurred while processing posts.')
+        print('*** Error occurred while processing persons.')
         traceback.print_exc()
         sys.exit(1)
-
-    merge_posts_in_html(p, '../templates/blog_template.html', '../blog.html')
 
 
 if __name__ == '__main__':
