@@ -155,13 +155,9 @@ class Researcher(object):
 					<div class="team-content">
 						<h3>{fullname}</h3>
 						<p>{institute}</p>
-						<div class="team-social">
-                            {social}
-						</div>
 					</div>
 				</div>
-			</div>\n""".format(filename=self.filename, fullname=self.name, institute=self.institute,
-                               social=self.format_social())
+			</div>\n""".format(filename=self.filename, fullname=self.name, institute=self.institute)
 
 
 class Researchers(object):
