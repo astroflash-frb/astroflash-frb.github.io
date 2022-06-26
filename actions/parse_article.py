@@ -145,6 +145,28 @@ class Post(object):
                              title=self.title, author=self.author, pubtype=categories[self.category],
                              body=self.body, reference=self.reference, url=self.link, linktype=linktype(self.link))
 
+    def shorten_title(self, max_length_char=85):
+        if len(self.title) <= max_length_char:
+            return self.title
+
+        return self.title[:self.title.rindex(' ', 0, max_length_char+1)] + '...'
+
+    def format_short_post(self, fullpath='./'):
+        image_path = f"{fullpath}{self.image}" if fullpath[-1] == '/' else f"{fullpath}/{self.image}"
+        return """<div class="feature-box col-md-6 col-lg-6 wow fadeInDown" data-wow-delay=".5s">
+                        <div class="posts-thumb float-left px-3">
+                            <a href="blog-rightside.html#">
+                                <img alt="img" width="150rem;" height="94rem;" src="{imgpath}">
+                            </a>
+                        </div>
+                        <div class="post-content">
+                            <h4 class="entry-title">{title}</h4>
+                            <p class="post-meta">
+                                <span class="post-meta-date"><i class="fa fa-clock-o"></i> {date}</span>
+                            </p>
+                        </div>
+                    </div>
+                    """.format(imgpath=image_path, date=self.date.strftime('%B %d, %Y'), title=self.shorten_title())
 
 
 class Posts(object):

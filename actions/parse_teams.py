@@ -140,9 +140,28 @@ class Researcher(object):
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>\n
             """.format(filename=self.filename, fullname=self.name, institute=self.institute,
                        description=self.description, social=self.format_social())
+
+    def format_short_person(self):
+        return  """<div class="col-md-6 col-lg-3">
+				<div class="team wow slideInRight">
+					<div class="img-hexagon">
+						<img src="team/{filename}.jpg" alt="">
+						<span class="img-top"></span>
+						<span class="img-bottom"></span>
+					</div>
+					<div class="team-content">
+						<h3>{fullname}</h3>
+						<p>{institute}</p>
+						<div class="team-social">
+                            {social}
+						</div>
+					</div>
+				</div>
+			</div>\n""".format(filename=self.filename, fullname=self.name, institute=self.institute,
+                               social=self.format_social())
 
 
 class Researchers(object):
@@ -210,7 +229,6 @@ class Researchers(object):
 
     def merge_people_in_html(self, html_template, output_html):
         assert os.path.isfile(html_template), f"The file {html_template} is not found."
-
         s = ''
         for a_role in self.roles:
             s += '<div class="gap-60"></div>'
