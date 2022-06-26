@@ -129,7 +129,6 @@ dmypy.json
 .pyre/
 .hugo_build.lock
 .gitignore
-.DS_Store
 .gitignore
 .DS_Store
 */.DS_Store
