@@ -44,4 +44,5 @@ jobs:
         python3 parse_teams.py
     - name: Populate index content
       run: |
-        python3 actions/parse_index.py
+        cd actions
+        python3 parse_index.py
