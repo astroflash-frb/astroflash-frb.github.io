@@ -14,6 +14,7 @@ import traceback
 
 categories = {'paper': 'Papers', 'atel': 'ATels', 'talk': 'Talks'}
 
+
 class Post(object):
 
     @property
@@ -116,34 +117,34 @@ class Post(object):
                 return 'it online'
 
         return """<div class="col-lg-8 isotope-item {category}">
-				<div class="post">
-					<div class="post-image-wrapper">
+                <div class="post">
+                    <div class="post-image-wrapper">
                         <img src="posts/{imgpath}" class="img-fluid" alt="" />
-						<span class="blog-date"> {date}</span>
-					</div>
-					<div class="post-header clearfix">
-						<h2 class="post-title">
-							<a href="blog-item.html">{title}</a>
-						</h2>
-						<div class="post-meta">
-							<span class="post-meta-author">Posted by <a href="team.html"> {author}</a></span>
-							<span class="post-meta-cats">in <a href="#"> {pubtype}</a></span>
-						</div>
-					</div>
-					<div class="post-body">
-						<p>{body}</p>
+                        <span class="blog-date"> {date}</span>
+                    </div>
+                    <div class="post-header clearfix">
+                        <h2 class="post-title">
+                            <a href="blog-item.html">{title}</a>
+                        </h2>
+                        <div class="post-meta">
+                            <span class="post-meta-author">Posted by <a href="team.html"> {author}</a></span>
+                            <span class="post-meta-cats">in <a href="#"> {pubtype}</a></span>
+                        </div>
+                    </div>
+                    <div class="post-body">
+                        <p>{body}</p>
                         <p>{reference}</p>
-					</div>
-					<div class="post-footer">
-						<a href="{url}" class="btn btn btn-outline-primary">See {linktype}
+                    </div>
+                    <div class="post-footer">
+                        <a href="{url}" class="btn btn btn-outline-primary">See {linktype}
                             <i class="fa fa-angle-double-right">&nbsp;</i>
                         </a>
-					</div>
-				</div>
+                    </div>
+                </div>
             </div>
             """.format(category=self.category, imgpath=self.image, date=self.date.strftime('%B %d, %Y'),
-                             title=self.title, author=self.author, pubtype=categories[self.category],
-                             body=self.body, reference=self.reference, url=self.link, linktype=linktype(self.link))
+                       title=self.title, author=self.author, pubtype=categories[self.category],
+                       body=self.body, reference=self.reference, url=self.link, linktype=linktype(self.link))
 
     def shorten_title(self, max_length_char=85):
         if len(self.title) <= max_length_char:
@@ -265,7 +266,7 @@ def main():
         p = Posts()
         p.get_posts()
         p.sort(reverse=True)
-    except:
+    except Exception:
         print('*** Error occurred while processing posts.')
         traceback.print_exc()
         sys.exit(1)

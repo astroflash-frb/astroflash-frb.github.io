@@ -6,11 +6,11 @@ containing the different articles.
 
 import os
 import sys
-import datetime as dt
 import glob
 import yaml
 import traceback
 from pathlib import Path
+
 
 class Researcher(object):
     @property
@@ -100,7 +100,6 @@ class Researcher(object):
         assert platform in self.social_media
         self._links[platform] = url
 
-
     def __init__(self, name=None, filename=None, role=None, institute=None, description=None, links=None):
         self._name = name
         self._filename = filename
@@ -112,7 +111,6 @@ class Researcher(object):
         else:
             self.links = links
 
-
     def format_social(self):
         s = ''
         s_template = '<a class="{a_class}" href="{url}"><i class="{i_class}"></i></a>\n'
@@ -122,42 +120,41 @@ class Researcher(object):
 
         return s
 
-
     def format_person(self):
         return """<div class="col-md-6">
-				<div class="team team-list wow slideInRight">
-					<div class="img-hexagon">
-						<img src="team/{filename}.jpg" alt="">
-						<span class="img-top"></span>
-						<span class="img-bottom"></span>
-					</div>
-					<div class="team-content">
-						<h3>{fullname}</h3>
-						<p>{institute}</p>
+                <div class="team team-list wow slideInRight">
+                    <div class="img-hexagon">
+                        <img src="team/{filename}.jpg" alt="">
+                        <span class="img-top"></span>
+                        <span class="img-bottom"></span>
+                    </div>
+                    <div class="team-content">
+                        <h3>{fullname}</h3>
+                        <p>{institute}</p>
                         <p class="desc">{description}</p>
-						<div class="team-social">
+                        <div class="team-social">
                             {social}
-						</div>
-					</div>
-				</div>
-			</div>\n
+                        </div>
+                    </div>
+                </div>
+            </div>\n
             """.format(filename=self.filename, fullname=self.name, institute=self.institute,
                        description=self.description, social=self.format_social())
 
     def format_short_person(self):
-        return  """<div class="col-md-6 col-lg-3">
-				<div class="team wow slideInRight">
-					<div class="img-hexagon">
-						<img src="team/{filename}.jpg" alt="">
-						<span class="img-top"></span>
-						<span class="img-bottom"></span>
-					</div>
-					<div class="team-content">
-						<h3>{fullname}</h3>
-						<p>{institute}</p>
-					</div>
-				</div>
-			</div>\n""".format(filename=self.filename, fullname=self.name, institute=self.institute)
+        return """<div class="col-md-6 col-lg-3">
+                <div class="team wow slideInRight">
+                    <div class="img-hexagon">
+                        <img src="team/{filename}.jpg" alt="">
+                        <span class="img-top"></span>
+                        <span class="img-bottom"></span>
+                    </div>
+                    <div class="team-content">
+                        <h3>{fullname}</h3>
+                        <p>{institute}</p>
+                    </div>
+                </div>
+            </div>\n""".format(filename=self.filename, fullname=self.name, institute=self.institute)
 
 
 class Researchers(object):
@@ -217,11 +214,11 @@ class Researchers(object):
     def format_group(self, a_group):
         assert a_group in self.roles
         return f"""<div class="row">
-			<div class="col-md-12 heading">
-				<span class="title-icon classic float-left"><i class="fa fa-users"></i></span>
-				<h2 class="title classic">{self.roles[a_group]}</h2>
-			</div>
-		</div>\n"""
+            <div class="col-md-12 heading">
+                <span class="title-icon classic float-left"><i class="fa fa-users"></i></span>
+                <h2 class="title classic">{self.roles[a_group]}</h2>
+            </div>
+        </div>\n"""
 
     def merge_people_in_html(self, html_template, output_html):
         assert os.path.isfile(html_template), f"The file {html_template} is not found."
@@ -248,7 +245,7 @@ def main():
         p = Researchers()
         p.get_researchers()
         p.merge_people_in_html('../templates/team_template.html', '../team.html')
-    except:
+    except Exception:
         print('*** Error occurred while processing persons.')
         traceback.print_exc()
         sys.exit(1)

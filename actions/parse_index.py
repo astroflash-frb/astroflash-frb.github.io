@@ -36,7 +36,7 @@ def main(index_template='../templates/index_template.html', output_html='../inde
         with open(output_html, 'w') as outhtml:
             outhtml.write(full_html)
 
-    except:
+    except Exception:
         print('*** Error occurred while processing persons.')
         traceback.print_exc()
         sys.exit(1)
