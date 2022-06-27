@@ -183,6 +183,19 @@ class Researchers(object):
         else:
             self._researchers = researchers
 
+    def pop(self, filename=None, name=None):
+        """Pops the given researcher from the list of researchers.
+        Either the 'filename' or 'name' attributes must be provided to localize the researcher.
+        """
+        assert (filename is not None) or (name is not None), "One, either 'filename' or 'name', must be provided."
+        assert not ((filename is not None) and (name is not None)), \
+               "Only one, either 'filename' or 'name', must be provided."
+        if filename is not None:
+            index = [r.filename for r in self._researchers].index(filename)
+        elif name is not None:
+            index = [r.filename for r in self._researchers].index(filename)
+        return self._researchers.pop(index)
+
     def with_role(self, role):
         """Returns a list with the researchers within the specified role
         """

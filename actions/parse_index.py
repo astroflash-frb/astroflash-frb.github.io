@@ -15,9 +15,15 @@ def main(index_template='../templates/index_template.html', output_html='../inde
         p.get_researchers()
 
         str_team = ''
-        for a_role in p.roles:
-            for person in p.with_role(a_role):
-                str_team += person.format_short_person()
+        # Old code where they are shorted firt by role and then by surname
+        # for a_role in p.roles:
+        #     for person in p.with_role(a_role):
+        #         str_team += person.format_short_person()
+
+        # New code where, except Jason, now they are all shorted by surname
+        str_team += p.pop(filename='hessels').format_short_person()
+        for person in p.researchers:
+            str_team += person.format_short_person()
 
         # Now it gets the same but for the latest 6 posts
         p = particles.Posts()
