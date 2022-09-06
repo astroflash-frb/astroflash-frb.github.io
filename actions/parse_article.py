@@ -219,8 +219,6 @@ class Posts(object):
         for a_post in all_posts:
             with open(a_post, 'r') as postfile:
                 data = yaml.load(postfile, Loader=yaml.loader.SafeLoader)
-                if verbose:
-                    print(data)
                 post = Post()
                 post.title = data['title']
                 post.author = data['author']
