@@ -257,10 +257,11 @@ class Researchers(object):
             full_html = ''.join(template.readlines())
             full_html = full_html.replace('{{content}}', s)
 
-        with open(output_html, 'w') as outhtml:
-            if verbose:
-                print(f"Writting html template file {output_html}")
+        if verbose:
+            print(f"Writting html information to {output_html} "
+                  f"({'exists' if os.path.isfile(output_html) else 'does not exist'})")
 
+        with open(output_html, 'w') as outhtml:
             outhtml.write(full_html)
 
 

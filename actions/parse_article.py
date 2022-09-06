@@ -214,7 +214,8 @@ class Posts(object):
         all_posts = glob.glob(path)
         all_posts.remove(all_posts[all_posts.index('../posts/template.yaml')])  # check if remove gets this input
         if verbose:
-            print("Found the following blog posts:\n" + f"{all_posts}")
+            print("Found the following blog posts:")
+
         for a_post in all_posts:
             with open(a_post, 'r') as postfile:
                 data = yaml.load(postfile, Loader=yaml.loader.SafeLoader)
@@ -229,6 +230,9 @@ class Posts(object):
                 post.link = data['link']
                 post.reference = data['reference']
                 post.body = data['body']
+
+            if verbose:
+                print(f"{post.date}: {post.title} (by {post.author})")
 
             self.append(post)
 
@@ -260,9 +264,11 @@ def merge_posts_in_html(posts, html_template, output_html, verbose=False):
         full_html = full_html.replace('{{template}}', posts.format_posts())
         full_html = full_html.replace('{{menu}}', format_menu(posts))
 
+    if verbose:
+        print(f"Writting html information to {output_html} "
+              f"({'exists' if os.path.isfile(output_html) else 'does not exist'})")
+
     with open(output_html, 'w') as outhtml:
-        if verbose:
-            print(f"Writting html information from {output_html}")
 
         outhtml.write(full_html)
 
