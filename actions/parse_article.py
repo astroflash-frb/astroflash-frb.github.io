@@ -250,28 +250,34 @@ def format_menu(posts):
     return s
 
 
-def merge_posts_in_html(posts, html_template, output_html):
+def merge_posts_in_html(posts, html_template, output_html, verbose=False):
     assert os.path.isfile(html_template), f"The file {html_template} is not found."
     with open(html_template, 'r') as template:
+        if verbose:
+            print(f"Reading html information from {html_template}")
+
         full_html = ''.join(template.readlines())
         full_html = full_html.replace('{{template}}', posts.format_posts())
         full_html = full_html.replace('{{menu}}', format_menu(posts))
 
     with open(output_html, 'w') as outhtml:
+        if verbose:
+            print(f"Writting html information from {output_html}")
+
         outhtml.write(full_html)
 
 
 def main():
     try:
         p = Posts()
-        p.get_posts()
+        p.get_posts(verbose=True)
         p.sort(reverse=True)
     except Exception:
         print('*** Error occurred while processing posts.')
         traceback.print_exc()
         sys.exit(1)
 
-    merge_posts_in_html(p, '../templates/blog_template.html', '../blog.html')
+    merge_posts_in_html(p, '../templates/blog_template.html', '../blog.html', True)
 
 
 if __name__ == '__main__':

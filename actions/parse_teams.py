@@ -206,9 +206,12 @@ class Researchers(object):
         assert isinstance(new_researcher, Researcher)
         self._researchers.append(new_researcher)
 
-    def get_researchers(self, path='../team/*.yaml'):
+    def get_researchers(self, path='../team/*.yaml', verbose=False):
         all_people = glob.glob(path)
         all_people.remove(all_people[all_people.index('../team/template.yaml')])
+        if verbose:
+            print("People found in the team:")
+
         for one_person in all_people:
             with open(one_person, 'r') as personfile:
                 data = yaml.load(personfile, Loader=yaml.loader.SafeLoader)
@@ -221,6 +224,8 @@ class Researchers(object):
                 for socialmedia in person.social_media:
                     if socialmedia in data:
                         person.add_link(socialmedia, data[socialmedia])
+            if verbose:
+                print(f"{person.role}: {person.name} ({person.institute})")
 
             self.add_researcher(person)
 
@@ -233,7 +238,7 @@ class Researchers(object):
             </div>
         </div>\n"""
 
-    def merge_people_in_html(self, html_template, output_html):
+    def merge_people_in_html(self, html_template, output_html, verbose=False):
         assert os.path.isfile(html_template), f"The file {html_template} is not found."
         s = ''
         for a_role in self.roles:
@@ -246,18 +251,24 @@ class Researchers(object):
             s += '</div>\n<div class="gap-60"></div>'
 
         with open(html_template, 'r') as template:
+            if verbose:
+                print(f"Reading html template file {html_template}")
+
             full_html = ''.join(template.readlines())
             full_html = full_html.replace('{{content}}', s)
 
         with open(output_html, 'w') as outhtml:
+            if verbose:
+                print(f"Writting html template file {output_html}")
+
             outhtml.write(full_html)
 
 
-def main():
+def main(verbose=False):
     try:
         p = Researchers()
-        p.get_researchers()
-        p.merge_people_in_html('../templates/team_template.html', '../team.html')
+        p.get_researchers(verbose=verbose)
+        p.merge_people_in_html('../templates/team_template.html', '../team.html', verbose)
     except Exception:
         print('*** Error occurred while processing persons.')
         traceback.print_exc()
@@ -265,4 +276,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main(verbose=True)

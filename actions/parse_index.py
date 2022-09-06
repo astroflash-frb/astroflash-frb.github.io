@@ -7,12 +7,12 @@ import parse_article as particles
 import parse_teams as pteams
 
 
-def main(index_template='../templates/index_template.html', output_html='../index.html'):
+def main(index_template='../templates/index_template.html', output_html='../index.html', verbose=False):
     try:
         assert os.path.isfile(index_template), f"The file {index_template} is not found."
         # First gets the team information (short version of people to be shown in index.html)
         p = pteams.Researchers()
-        p.get_researchers()
+        p.get_researchers(verbose=True)
 
         str_team = ''
         # Old code where they are shorted firt by role and then by surname
@@ -27,7 +27,7 @@ def main(index_template='../templates/index_template.html', output_html='../inde
 
         # Now it gets the same but for the latest 6 posts
         p = particles.Posts()
-        p.get_posts()
+        p.get_posts(verbose=True)
         p.sort(reverse=True)
 
         str_posts = ''
@@ -35,11 +35,17 @@ def main(index_template='../templates/index_template.html', output_html='../inde
             str_posts += post.format_short_post(fullpath='posts/')
 
         with open(index_template, 'r') as template:
+            if verbose:
+                print(f"Reading the html template file {index_template}")
+
             full_html = ''.join(template.readlines())
             full_html = full_html.replace('{{posts}}', str_posts)
             full_html = full_html.replace('{{team}}', str_team)
 
         with open(output_html, 'w') as outhtml:
+            if verbose:
+                print(f"Writting the html template file {output_html}")
+
             outhtml.write(full_html)
 
     except Exception:
@@ -49,4 +55,4 @@ def main(index_template='../templates/index_template.html', output_html='../inde
 
 
 if __name__ == '__main__':
-    main()
+    main(verbose=True)
