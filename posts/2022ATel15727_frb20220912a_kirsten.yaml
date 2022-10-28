@@ -1,0 +1,24 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+# Title of the post
+title: PRECISE detects high activity from FRB 20220912A at 1.4 GHz but no bursts at 5 GHz using the Effelsberg telescope
+# First name of the author of the post (only first name)
+author: Franz
+# Date of the post in YYYY-MM-DD format
+date: 2022-10-28
+# Category: can be "paper", "atel", "talk"
+category: atel
+# filename with the image to be shown in the header of the post. general.jpg will put the default one
+image: 2022ATel15727_frb20220912a_kirsten.png
+# Link to the website with more information. e.g. it can be the ADS url, or ATel page, etc.
+link: https://www.astronomerstelegram.org/?read=15727
+# Final line in the post, if it is a publication, put the reference in a format similat to SAO/ADS
+# e.g.  Name et al. 1999, Journal, issue, page
+reference: Kirsten et al., 2022, The Astronomer's Telegram, No. 15727.
+# Write here the body of the post. Some characters may break the parsing, so you can use quotes for the full body.
+body: "We observed the recently discovered FRB 20220912A (ATel #15679) with an ad-hoc VLBI network as part of the <a href='https://www.ira.inaf.it/precise/Home.html'>PRECISE</a> project. We targeted the source on three occasions: 22 Oct UT 00:00-04:30, 24-25 Oct UT 21:00-02:00, and 26-27 Oct UT 23:00-04:30. The first two observations were carried out at L-band (1254-1510 MHz) while the latest one was performed at C-band (4798-5054 MHz). During the two L-band sessions we were pointing at the coordinates found by DSA-110 (23h09h05.49s +48d42m25.6s, J2000, ATel #15693) and refined this to the updated DSA-110 localisation from ATel #15716 (23h09h04.9s +48d42m25.4s, J2000) for the C-band session. Since these are VLBI observations, the target scans were interrupted by calibrator scans, reducing the total time on source to 160 minutes during the L-band runs and 197 minutes during the C-band run.  </br>  </br>
+We recorded the raw voltages (aka baseband data) as 2-bit samples, storing both left and right circular polarisations at all participating stations. Being the most sensitive dish in the array, the baseband data from the Effelsberg telescope were transferred to a processing node at Onsala Space Observatory where they were processed to generate total intensity (Stokes <em>I</em>) filterbanks at time and frequency resolution of 64 microseconds and 62.5 kHz at L-band, and 16 microseconds and 1 MHz at C-band. The data were then searched using the Heimdall software package (limiting the DM search range to 170-270 pc/cm^3) and candidates were selected as real using the ML-classifier FETCH (Agarwal et al. 2020).  </br>  </br>
+In total we detected 49 bursts in the Effelsberg data during the L-band run on 22 Oct and another 113 bursts during the L-band run on 24-25 Oct. This corresponds to rates of 18 and 42 bursts/hour, respectively, which is lower than the rate found in ATel #15723 (assuming similar sensitivity thresholds). We note though that during our observations the number of bursts per scan changed significantly between scans, ranging from 1 to 10 bursts per 5-minute scan on source (12-120 bursts/hour).  </br>  </br>
+On the contrary, we detected no bursts at C-band on 26-27 Oct above a 7-sigma detection limit of 0.22 Jy ms. Since it is unlikely that the source became inactive within about 45 hours, we conclude that the source is either a) inactive at C-band or burst rates are significantly lower than at L-band, b) C-band emission misses Earth because of (potentially relativistic) beaming leading to a smaller emission cone, or c) the source does emit at C-band but outside the frequency range probed by our observations.  </br>  </br>
+Simultaneously with our L-band observations on 22 Oct, the Stockert telescope was also observing FRB 20220912A. They detected a burst from the source at UT 02:14:50.491 (topocentric, DM=219.46, reference frequency 1430 MHz) which falls within a time when Effelsberg was still slewing. Manual inspection of data from some of the smaller stations in our array (Medicina, Noto, Torun) showed that they were already on source and detected the burst as well. The particular burst in question can be found <a href='https://www.astron.nl/~hessels/AstroFlash/atel-221028-precise_frb220912a.html'>here</a>."
