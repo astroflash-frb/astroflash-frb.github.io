@@ -12,7 +12,7 @@ import yaml
 import traceback
 
 
-categories = {'paper': 'Papers', 'atel': 'ATels', 'talk': 'Talks'}
+categories = {'paper': 'Papers', 'atel': 'ATels', 'talk': 'Talks', 'other': 'Other'}
 
 
 class Post(object):
@@ -70,7 +70,7 @@ class Post(object):
 
     @link.setter
     def link(self, new_par):
-        assert isinstance(new_par, str)
+        assert isinstance(new_par, str) or new_par is None
         self._link = new_par
 
     @property
@@ -107,7 +107,9 @@ class Post(object):
 
     def format_post(self):
         def linktype(a_link):
-            if 'adsabs' in a_link:
+            if a_link is None:
+                return None
+            elif 'adsabs' in a_link:
                 return 'in SAO/NASA ADS'
             elif 'astronomerstelegram' in a_link:
                 return "in The Astronomer's Telegram"
@@ -115,6 +117,13 @@ class Post(object):
                 return 'in GCN Circulars'
             else:
                 return 'it online'
+
+        if linktype(self.link) is None:
+            link_button = ""
+        else:
+            link_button = """<a href="{url}" class="btn btn btn-outline-primary">See {linktype}
+                            <i class="fa fa-angle-double-right">&nbsp;</i>
+                          </a>""".format(url=self.link, linktype=linktype(self.link))
 
         return """<div class="col-lg-8 isotope-item {category}">
                 <div class="post">
@@ -136,15 +145,14 @@ class Post(object):
                         <p>{reference}</p>
                     </div>
                     <div class="post-footer">
-                        <a href="{url}" class="btn btn btn-outline-primary">See {linktype}
-                            <i class="fa fa-angle-double-right">&nbsp;</i>
-                        </a>
+                        {link}
                     </div>
                 </div>
             </div>
-            """.format(category=self.category, imgpath=self.image, date=self.date.strftime('%B %d, %Y'),
-                       title=self.title, author=self.author, pubtype=categories[self.category],
-                       body=self.body, reference=self.reference, url=self.link, linktype=linktype(self.link))
+            """.format(category=self.category, imgpath=self.image,
+                       date=self.date.strftime('%B %d, %Y'), title=self.title, author=self.author,
+                       pubtype=categories[self.category], body=self.body, reference=self.reference,
+                       link=link_button)
 
     def shorten_title(self, max_length_char=85):
         if len(self.title) <= max_length_char:
