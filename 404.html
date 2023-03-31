@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
-<head>
+ <head>
 	<meta charset="utf-8">
-	<title>BizCraft - Responsive Html5 Template</title>
+	<title>AstroFlash</title>
 
 	<!-- mobile responsive meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-	<!-- ** Plugins Needed for the Project ** -->
+	<!-- Plugins Needed for the Project -->
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
 	<!-- FontAwesome -->
@@ -37,156 +37,84 @@
 
 	<!-- fonts -->
 	<!-- <link rel="stylesheet" href="fonts/jaapokki/style.css"> -->
-
 	<link href="css/style.css" rel="stylesheet">
-
 	<!--Favicon-->
-	<link rel="icon" href="https://demo.themefisher.com/bizcraft/img/favicon/favicon-32x32.png" type="image/x-icon" />
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://demo.themefisher.com/bizcraft/img/favicon/favicon-144x144.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://demo.themefisher.com/bizcraft/img/favicon/favicon-72x72.png">
-	<link rel="apple-touch-icon-precomposed" href="https://demo.themefisher.com/bizcraft/img/favicon/favicon-54x54.png">
+	<link rel="icon" href="images/favicon.png" sizes="125x125" type="image/x-icon" />
+	<!-- <link rel="apple-touch-icon-precomposed" href="https://demo.themefisher.com/bizcraft/img/favicon/favicon-54x54.png"> -->
 
 </head>
 
 <body>
-
-	<!-- Style switcher start -->
-	<div class="style-switch-wrapper">
-		<div class="style-switch-button">
-			<i class="fa fa-sliders"></i>
-		</div>
-		<h3>Style Options</h3>
-		<button id="preset1" class="btn btn-sm btn btn-outline-white"></button>
-		<button id="preset2" class="btn btn-sm btn btn-outline-white"></button>
-		<button id="preset3" class="btn btn-sm btn btn-outline-white"></button>
-		<button id="preset4" class="btn btn-sm btn btn-outline-white"></button>
-		<button id="preset5" class="btn btn-sm btn btn-outline-white"></button>
-		<button id="preset6" class="btn btn-sm btn btn-outline-white"></button>
-		<br /><br />
-		<a class="btn btn-outline-white close-styler float-right">Close X</a>
-	</div>
-	<!-- Style switcher end -->
-
 	<div class="body-inner">
+        <!-- Header start -->
+        <header id="header" class="fixed-top header" role="banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="navbar navbar-expand-lg navbar-dark">
+                            <a class="navbar-brand navbar-bg" href="index.html">
+                                <img class="img-fluid float-left" src="images/logo-inverted.png"
+                                     width="50%" alt="AstroFlash logo">
+                            </a>
+                            <!-- <button class="navbar-toggler ml-auto border-0 rounded-0 text-white" type="button" -->
+                            <!--         data-toggle="collapse" data-target="#navigation" aria-controls="navigation" -->
+                            <!--         aria-expanded="false" aria-label="Toggle navigation"> -->
+                            <!--     <span class="fa fa-bars"></span> -->
+                            <!-- </button> -->
+                            <div class="collapse navbar-collapse text-center" id="navigation">
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="index.html">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="team.html" ><nobr>Our Team</nobr></a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="blog.html"><nobr>Latest Results</nobr></a>
+                                    </li>
+                                    <!-- <li class="nav-item dropdown"> -->
+                                    <!--     <a class="nav-link dropdown-toggle" href="index-2.html#" role="button" data-toggle="dropdown" aria-haspopup="true" -->
+                                    <!--         aria-expanded="false"> -->
+                                    <!--         Latest Results -->
+                                    <!--     </a> -->
+                                    <!--     <div class="dropdown-menu"> -->
+                                    <!--         <a class="dropdown-item" href="blog.html">Blog</a> -->
+                                    <!--         <a class="dropdown-item" href="service.html">ATels</a> -->
+                                    <!--         <a class="dropdown-item" href="career.html">Publications</a> -->
+                                    <!--         <a class="dropdown-item" href="testimonial.html">Outreach</a> -->
+                                    <!--         <a class="dropdown-item" href="faq.html">Faq</a> -->
+                                    <!--     </div> -->
+                                    <!-- </li> -->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="contact.html">Contact</a></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--/ Header end -->
 
-<!-- Header start -->
-<header id="header" class="fixed-top header" role="banner">
-	<!-- <a class="navbar-brand navbar-bg" href="index.html"><img class="img-fluid float-right" src="images/logo.png" alt="logo"></a> -->
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<nav class="navbar navbar-expand-lg navbar-dark">
-					<a class="navbar-brand navbar-bg" href="index.html"><img class="img-fluid float-right" src="images/logo.png" alt="logo"></a>
-					<button class="navbar-toggler ml-auto border-0 rounded-0 text-white" type="button" data-toggle="collapse"
-						data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="fa fa-bars"></span>
-					</button>
-		
-					<div class="collapse navbar-collapse text-center" id="navigation">
-						<ul class="navbar-nav ml-auto">
-							<li class="nav-item dropdown active">
-								<a class="nav-link dropdown-toggle" href="404.html#" role="button" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false">
-									Home
-								</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="index.html">Homepage 1</a>
-									<a class="dropdown-item" href="index-2.html">Homepage 2</a>
-									<a class="dropdown-item" href="index-3.html">Homepage 3</a>
-									<a class="dropdown-item" href="index-4.html">Homepage 4</a>
-								</div>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="404.html#" role="button" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false">
-									Company
-								</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="about.html">About Us</a>
-									<a class="dropdown-item" href="service.html">Services</a>
-									<a class="dropdown-item" href="career.html">Career</a>
-									<a class="dropdown-item" href="testimonial.html">Testimonials</a>
-									<a class="dropdown-item" href="faq.html">Faq</a>
-								</div>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="404.html#" role="button" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false">
-									Portfolio
-								</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="portfolio-classic.html">Portfolio Classic</a>
-									<a class="dropdown-item" href="portfolio-static.html">Portfolio Static</a>
-									<a class="dropdown-item" href="portfolio-item.html">Portfolio Single</a>
-								</div>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="404.html#" role="button" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false">
-									Pages
-								</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="team.html">Our Team</a>
-									<a class="dropdown-item" href="about2.html">About Us - 2</a>
-									<a class="dropdown-item" href="service2.html">Services - 2</a>
-									<a class="dropdown-item" href="service-single.html">Services Single</a>
-									<a class="dropdown-item" href="pricing.html">Pricing Table</a>
-									<a class="dropdown-item" href="404.html">404 Page</a>
-								</div>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="404.html#" role="button" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false">
-									Blog
-								</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="blog-rightside.html">Blog with Sidebar</a>
-									<a class="dropdown-item" href="blog-item.html">Blog Single</a>
-								</div>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="404.html#" role="button" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false">
-									Features
-								</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="typography.html">Typography</a>
-									<a class="dropdown-item" href="elements.html">Elements</a>
-								</div>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="contact.html">Contact</a></a>
-							</li>
-						</ul>
-					</div>
-				</nav>
-			</div>
-		</div>
-	</div>
-</header>
-<!--/ Header end -->
+
 
 <div id="banner-area">
-	<img src="images/banner/banner1.jpg" alt="" />
+    <img src="images/banner/banner.jpg" width="100%" alt="" />
 	<div class="parallax-overlay"></div>
 	<!-- Subpage title start -->
 	<div class="banner-title-content">
 		<div class="text-center">
-			<h2>404 Page</h2>
-			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb justify-content-center">
-					<li class="breadcrumb-item"><a href="404.html#">Home</a></li>
-					<li class="breadcrumb-item text-white" aria-current="page">404 Page</li>
-				</ol>
-			</nav>
+			<h2>Lost in Space</h2>
 		</div>
 	</div><!-- Subpage title end -->
 </div><!-- Banner area end -->
 
+
 <!-- Main container start -->
 <section id="main-container">
 	<div class="container">
-		<div class="row">
+ 		<div class="row">
 			<div class="col-12">
 				<div class="error-page text-center">
 					<div class="error-code">
@@ -197,161 +125,55 @@
 					</div>
 					<div class="error-body">
 						Try using the button below to go to main page of the site <br />
-						<a href="index.html" class="btn btn-outline-primary blank"><i class="fa fa-arrow-circle-left">&nbsp;</i> Go to
-							Home</a>
+						<a href="index.html" class="btn btn-outline-primary blank">
+                            <i class="fa fa-arrow-circle-left">&nbsp;</i> Go Back to Earth</a>
 					</div>
 				</div>
 			</div>
 		</div>
+        <div class="gap-60"></div>
 	</div>
+	<!--/ container end -->
 </section>
 <!--/ Main container end -->
-
-	<!-- Footer start -->
-	<footer id="footer" class="footer">
-	  <div class="container">
-	    <div class="row">
-	      <div class="col-md-4 col-lg-4 footer-widget mb-5 mb-lg-0">
-	        <h3 class="widget-title">Recent Posts</h3>
-	        <div class="latest-post-items media">
-	          <div class="latest-post-content media-body">
-	            <h4><a href="404.html#">Bulgaria claims to find Europe's 'oldest town'</a></h4>
-	            <p class="post-meta">
-	              <span class="author">Posted by John Doe</span>
-	              <span class="post-meta-cat">in<a href="404.html#"> Blog</a></span>
-	            </p>
-	          </div>
-	        </div><!-- 1st Latest Post end -->
-
-	        <div class="latest-post-items media">
-	          <div class="latest-post-content media-body">
-	            <h4><a href="404.html#">Few Answers in Case of Murdered Law Professor</a></h4>
-	            <p class="post-meta">
-	              <span class="date"><i class="icon icon-calendar"></i> Mar 15, 2015</span>
-	              <span class="post-meta-comments"><i class="icon icon-bubbles4"></i> <a href="404.html#">03</a></span>
-	            </p>
-	          </div>
-	        </div><!-- 2nd Latest Post end -->
-
-	        <div class="latest-post-items media">
-	          <div class="latest-post-content media-body">
-	            <h4><a href="404.html#">Over the year we have lots of experience in our field</a></h4>
-	            <p class="post-meta">
-	              <span class="date"><i class="icon icon-calendar"></i> Apr 17, 2015</span>
-	              <span class="post-meta-comments"><i class="icon icon-bubbles4"></i> <a href="404.html#">14</a></span>
-	            </p>
-	          </div>
-	        </div><!-- 3rd Latest Post end -->
-
-	      </div>
-	      <!--/ End Recent Posts-->
-
-	      <div class="col-md-8 col-lg-4 footer-widget mb-5 mb-lg-0">
-	        <h3 class="widget-title">Flickr Photos</h3>
-
-	        <div class="img-gallery">
-	          <div class="img-container">
-	            <a class="thumb-holder" data-rel="prettyPhoto" href="images/gallery/1.jpg">
-	              <img src="images/gallery/1.jpg" alt="">
-	            </a>
-	            <a class="thumb-holder" data-rel="prettyPhoto" href="images/gallery/2.jpg">
-	              <img src="images/gallery/2.jpg" alt="">
-	            </a>
-	            <a class="thumb-holder" data-rel="prettyPhoto" href="images/gallery/3.jpg">
-	              <img src="images/gallery/3.jpg" alt="">
-	            </a>
-	            <a class="thumb-holder" data-rel="prettyPhoto" href="images/gallery/4.jpg">
-	              <img src="images/gallery/4.jpg" alt="">
-	            </a>
-	            <a class="thumb-holder" data-rel="prettyPhoto" href="images/gallery/5.jpg">
-	              <img src="images/gallery/5.jpg" alt="">
-	            </a>
-	            <a class="thumb-holder" data-rel="prettyPhoto" href="images/gallery/6.jpg">
-	              <img src="images/gallery/6.jpg" alt="">
-	            </a>
-	            <a class="thumb-holder" data-rel="prettyPhoto" href="images/gallery/6.jpg">
-	              <img src="images/gallery/7.jpg" alt="">
-	            </a>
-	            <a class="thumb-holder" data-rel="prettyPhoto" href="images/gallery/6.jpg">
-	              <img src="images/gallery/8.jpg" alt="">
-	            </a>
-	            <a class="thumb-holder" data-rel="prettyPhoto" href="images/gallery/6.jpg">
-	              <img src="images/gallery/9.jpg" alt="">
-	            </a>
-	          </div>
-	        </div>
-	      </div>
-	      <!--/ end flickr -->
-
-	      <div class="col-md-12 col-lg-4 footer-widget footer-about-us mb-5 mb-lg-0">
-	        <h3 class="widget-title">About Craft</h3>
-	        <p>We are a awward winning multinational company. We believe in quality and standard worldwide.</p>
-	        <h4>Address</h4>
-	        <p>1102 Saint Marys, Junction City, KS</p>
-	        <div class="row">
-	          <div class="col-12">
-	            <h4>Email:</h4>
-	            <p><a href="mailto:info@craftbd.com" class="text-white">info@craftbd.com</a></p>
-	          </div>
-	          <div class="col-12">
-	            <h4>Phone No.</h4>
-	            <p><a href="tel:+(785) 238-4131" class="text-white">+(785) 238-4131</a></p>
-	          </div>
-	        </div>
-	        <form action="404.html#" role="form">
-	          <div class="input-group subscribe">
-	            <input type="email" class="form-control" placeholder="Email Address" required="">
-	            <span class="input-group-addon">
-	              <button class="btn" type="submit"><i class="fa fa-envelope-o"> </i></button>
-	            </span>
-	          </div>
-	        </form>
-	      </div>
-	      <!--/ end about us -->
-
-	    </div><!-- Row end -->
-	  </div><!-- Container end -->
-	</footer><!-- Footer end -->
-
 
 	<!-- Copyright start -->
 	<section id="copyright" class="copyright angle">
 	  <div class="container">
 	    <div class="row">
 	      <div class="col-md-12 text-center">
-	        <ul class="footer-social unstyled">
-	          <li>
-	            <a title="Twitter" href="404.html#">
-	              <span class="icon-pentagon wow bounceIn"><i class="fa fa-twitter"></i></span>
-	            </a>
-	            <a title="Facebook" href="404.html#">
-	              <span class="icon-pentagon wow bounceIn"><i class="fa fa-facebook"></i></span>
-	            </a>
-	            <a title="Google+" href="404.html#">
-	              <span class="icon-pentagon wow bounceIn"><i class="fa fa-google-plus"></i></span>
-	            </a>
-	            <a title="linkedin" href="404.html#">
-	              <span class="icon-pentagon wow bounceIn"><i class="fa fa-linkedin"></i></span>
-	            </a>
-	            <a title="Pinterest" href="404.html#">
-	              <span class="icon-pentagon wow bounceIn"><i class="fa fa-pinterest"></i></span>
-	            </a>
-	            <a title="Skype" href="404.html#">
-	              <span class="icon-pentagon wow bounceIn"><i class="fa fa-skype"></i></span>
-	            </a>
-	            <a title="Dribble" href="404.html#">
-	              <span class="icon-pentagon wow bounceIn"><i class="fa fa-dribbble"></i></span>
-	            </a>
-	          </li>
-	        </ul>
+	        <!-- <ul class="footer-social unstyled"> -->
+	        <!--   <li> -->
+	        <!--     <a title="Twitter" href="team.html#"> -->
+	        <!--       <span class="icon-pentagon wow bounceIn"><i class="fa fa-twitter"></i></span> -->
+	        <!--     </a> -->
+	        <!--     <a title="Facebook" href="team.html#"> -->
+	        <!--       <span class="icon-pentagon wow bounceIn"><i class="fa fa-facebook"></i></span> -->
+	        <!--     </a> -->
+	        <!--     <a title="Google+" href="team.html#"> -->
+	        <!--       <span class="icon-pentagon wow bounceIn"><i class="fa fa-google-plus"></i></span> -->
+	        <!--     </a> -->
+	        <!--     <a title="linkedin" href="team.html#"> -->
+	        <!--       <span class="icon-pentagon wow bounceIn"><i class="fa fa-linkedin"></i></span> -->
+	        <!--     </a> -->
+	        <!--     <a title="Pinterest" href="team.html#"> -->
+	        <!--       <span class="icon-pentagon wow bounceIn"><i class="fa fa-pinterest"></i></span> -->
+	        <!--     </a> -->
+	        <!--     <a title="Skype" href="team.html#"> -->
+	        <!--       <span class="icon-pentagon wow bounceIn"><i class="fa fa-skype"></i></span> -->
+	        <!--     </a> -->
+	        <!--     <a title="Dribble" href="team.html#"> -->
+	        <!--       <span class="icon-pentagon wow bounceIn"><i class="fa fa-dribbble"></i></span> -->
+	        <!--     </a> -->
+	        <!--   </li> -->
+	        <!-- </ul> -->
 	      </div>
 	    </div>
 	    <!--/ Row end -->
 	    <div class="row">
 	      <div class="col-md-12 text-center">
 	        <div class="copyright-info">
-	          &copy; Copyright 2019 Themefisher. <span>Designed by <a
-	              href="https://themefisher.com">Themefisher.com</a></span>
+					&copy; Copyright 2022 AstroFlash
 	        </div>
 	      </div>
 	    </div>
