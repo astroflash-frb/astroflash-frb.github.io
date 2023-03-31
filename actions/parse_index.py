@@ -7,7 +7,8 @@ import parse_article as particles
 import parse_teams as pteams
 
 
-def main(index_template='../templates/index_template.html', output_html='../index.html', verbose=False):
+def main(index_template='../templates/index_template.html', output_html='../index.html',
+         verbose=False):
     try:
         assert os.path.isfile(index_template), f"The file {index_template} is not found."
         # First gets the team information (short version of people to be shown in index.html)

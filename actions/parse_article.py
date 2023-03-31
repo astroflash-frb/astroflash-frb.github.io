@@ -18,6 +18,14 @@ categories = {'paper': 'Papers', 'atel': 'ATels', 'talk': 'Talks', 'other': 'Oth
 class Post(object):
 
     @property
+    def yaml_file(self):
+        return self._yaml
+
+    @yaml_file.setter
+    def yaml_file(self, new_file: str):
+        self._yaml = new_file
+
+    @property
     def title(self):
         return self._title
 
@@ -94,8 +102,9 @@ class Post(object):
         else:
             self._reference = new_par
 
-    def __init__(self, title=None, author=None, date=None, category=None, image=None, link=None,
-                 body=None, reference=None):
+    def __init__(self, yaml=None, title=None, author=None, date=None, category=None, image=None,
+                 link=None, body=None, reference=None):
+        self.yaml_file = yaml
         self._title = title
         self._author = author
         self._date = date
@@ -105,7 +114,7 @@ class Post(object):
         self._body = body
         self._reference = reference
 
-    def format_post(self):
+    def format_post(self, topdir='.'):
         def linktype(a_link):
             if a_link is None:
                 return None
@@ -125,18 +134,20 @@ class Post(object):
                             <i class="fa fa-angle-double-right">&nbsp;</i>
                           </a>""".format(url=self.link, linktype=linktype(self.link))
 
+        topdir = topdir[:-1] if topdir[-1] == '/' else topdir
         return """<div class="col-lg-8 isotope-item {category}">
                 <div class="post">
                     <div class="post-image-wrapper">
-                        <img src="posts/{imgpath}" class="img-fluid" alt="" />
+                        <img src="{imgpath}" class="img-fluid" alt="" />
                         <span class="blog-date"> {date}</span>
                     </div>
                     <div class="post-header clearfix">
                         <h2 class="post-title">
-                            <a href="blog-item.html">{title}</a>
+                            <a href="{blog_url}">{title}</a>
                         </h2>
                         <div class="post-meta">
-                            <span class="post-meta-author">Posted by <a href="team.html"> {author}</a></span>
+                            <span class="post-meta-author">Posted by
+                            <a href="team.html"> {author}</a></span>
                             <span class="post-meta-cats">in <a href="#"> {pubtype}</a></span>
                         </div>
                     </div>
@@ -149,7 +160,8 @@ class Post(object):
                     </div>
                 </div>
             </div>
-            """.format(category=self.category, imgpath=self.image,
+            """.format(category=self.category, imgpath=topdir + '/posts/' + self.image,
+                       blog_url=topdir + "/blog/" + self.yaml_file.replace('.yaml', '.html'),
                        date=self.date.strftime('%B %d, %Y'), title=self.title, author=self.author,
                        pubtype=categories[self.category], body=self.body, reference=self.reference,
                        link=link_button)
@@ -161,21 +173,24 @@ class Post(object):
         return self.title[:self.title.rindex(' ', 0, max_length_char+1)] + '...'
 
     def format_short_post(self, fullpath='./'):
-        image_path = f"{fullpath}{self.image}" if fullpath[-1] == '/' else f"{fullpath}/{self.image}"
+        img_path = f"{fullpath}{self.image}" if fullpath[-1] == '/' else f"{fullpath}/{self.image}"
         return """<div class="feature-box col-md-6 col-lg-6 wow fadeInDown" data-wow-delay=".5s">
                         <div class="posts-thumb float-left px-3">
-                            <a href="blog-rightside.html#">
+                            <a href="{urlpost}">
                                 <img alt="img" width="150rem;" height="94rem;" src="{imgpath}">
                             </a>
                         </div>
                         <div class="post-content">
                             <h4 class="entry-title">{title}</h4>
                             <p class="post-meta">
-                                <span class="post-meta-date"><i class="fa fa-clock-o"></i> {date}</span>
+                                <span class="post-meta-date"><i class="fa fa-clock-o"></i> {date}
+                                </span>
                             </p>
                         </div>
                     </div>
-                    """.format(imgpath=image_path, date=self.date.strftime('%B %d, %Y'), title=self.shorten_title())
+                    """.format(imgpath=img_path,
+                               urlpost=f"blog/{self.yaml_file.replace('.yaml', '.html')}",
+                               date=self.date.strftime('%B %d, %Y'), title=self.shorten_title())
 
 
 class Posts(object):
@@ -228,6 +243,7 @@ class Posts(object):
             with open(a_post, 'r') as postfile:
                 data = yaml.load(postfile, Loader=yaml.loader.SafeLoader)
                 post = Post()
+                post.yaml_file = a_post[a_post.rindex('/')+1:]
                 post.title = data['title']
                 post.author = data['author']
                 post.date = data['date']
@@ -260,8 +276,9 @@ def format_menu(posts):
     return s
 
 
-def merge_posts_in_html(posts, html_template, output_html, verbose=False):
-    assert os.path.isfile(html_template), f"The file {html_template} is not found."
+def merge_posts_in_html(posts, html_template, output_html, post_template, posts_dir, verbose=False):
+    assert os.path.isfile(html_template), f"The file {html_template} was not found."
+    assert os.path.isfile(post_template), f"The file {post_template} was not found."
     with open(html_template, 'r') as template:
         if verbose:
             print(f"Reading html information from {html_template}")
@@ -270,12 +287,25 @@ def merge_posts_in_html(posts, html_template, output_html, verbose=False):
         full_html = full_html.replace('{{template}}', posts.format_posts())
         full_html = full_html.replace('{{menu}}', format_menu(posts))
 
+    with open(post_template, 'r') as template:
+        if verbose:
+            print(f"Reading html information from {post_template}")
+
+        full_post_html = ''.join(template.readlines())
+
+    for a_post in posts.posts:
+        with open(f"{posts_dir}{'/' if posts_dir[-1] != '/' else ''}" \
+                  f"{a_post.yaml_file.replace('.yaml', '.html')}", 'w') as post_template:
+            if verbose:
+                print(f"Generating html for post {a_post.yaml_file.replace('.yaml', '')}.")
+
+            post_template.write(full_post_html.replace('{{template}}', a_post.format_post(topdir='..')))
+
     if verbose:
         print(f"Writting html information to {output_html} "
               f"({'exists' if os.path.isfile(output_html) else 'does not exist'})")
 
     with open(output_html, 'w') as outhtml:
-
         outhtml.write(full_html)
 
 
@@ -289,7 +319,8 @@ def main():
         traceback.print_exc()
         sys.exit(1)
 
-    merge_posts_in_html(p, '../templates/blog_template.html', '../blog.html', True)
+    merge_posts_in_html(p, '../templates/blog_template.html', '../blog.html',
+                        '../templates/blog-item-template.html', '../blog/', True)
 
 
 if __name__ == '__main__':
