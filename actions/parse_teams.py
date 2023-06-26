@@ -11,12 +11,13 @@ import yaml
 import traceback
 from pathlib import Path
 
+_ROLES = {'leader': 'Group Leader', 'staff': 'Staff', 'postdoc': 'PostDoc', 'phd': 'PhD students',
+                'master': 'Master Students', 'affiliated': 'Affiliated', 'former': 'Previous  Members'}
 
 class Researcher(object):
     @property
     def roles(self):
-        return {'leader': 'Group Leader', 'staff': 'Staff', 'postdoc': 'PostDoc', 'phd': 'PhD students',
-                'master': 'Master Students'}
+        return _ROLES
 
     @property
     def social_media(self):
@@ -162,8 +163,7 @@ class Researchers(object):
     """
     @property
     def roles(self):
-        return {'leader': 'Group Leader', 'staff': 'Staff', 'postdoc': 'PostDoc', 'phd': 'PhD students',
-                'master': 'Master Students'}
+        return _ROLES
 
     @property
     def researchers(self):
