@@ -11,8 +11,9 @@ import yaml
 import traceback
 from pathlib import Path
 
-_ROLES = {'leader': 'Group Leader', 'staff': 'Staff', 'postdoc': 'PostDoc', 'phd': 'PhD students',
-                'master': 'Master Students', 'affiliated': 'Affiliated', 'former': 'Previous  Members'}
+_ROLES = {'leader': 'Group Leader', 'staff': 'Staff', 'postdoc': 'PostDoc',
+          'phd': 'PhD students', 'master': 'Master Students',
+          'affiliated': 'Affiliated', 'former': 'Previous  Members'}
 
 class Researcher(object):
     @property
@@ -187,7 +188,8 @@ class Researchers(object):
         """Pops the given researcher from the list of researchers.
         Either the 'filename' or 'name' attributes must be provided to localize the researcher.
         """
-        assert (filename is not None) or (name is not None), "One, either 'filename' or 'name', must be provided."
+        assert (filename is not None) or (name is not None), \
+               "One, either 'filename' or 'name', must be provided."
         assert not ((filename is not None) and (name is not None)), \
                "Only one, either 'filename' or 'name', must be provided."
         if filename is not None:
