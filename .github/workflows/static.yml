@@ -36,10 +36,9 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Populate html content
         run: |
-          cd actions
-          python3 parse_article.py
-          python3 parse_teams.py
-          python3 parse_index.py
+          python3 actions/parse_article.py
+          python3 actions/parse_teams.py
+          python3 actions/parse_index.py
   # Single deploy job since we're just deploying
   deploy:
     environment:
