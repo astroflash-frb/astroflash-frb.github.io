@@ -13,7 +13,7 @@ from pathlib import Path
 
 _ROLES = {'leader': 'Group Leader', 'staff': 'Staff', 'postdoc': 'PostDoc',
           'phd': 'PhD students', 'master': 'Master Students',
-          'affiliated': 'Affiliated', 'former': 'Previous  Members'}
+          'affiliated': 'Affiliated', 'former': 'Former Members'}
 
 class Researcher(object):
     @property
