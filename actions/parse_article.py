@@ -6,6 +6,8 @@ containing the different articles.
 
 import os
 import sys
+from pathlib import Path
+from rich import print as rprint
 import datetime as dt
 import glob
 import yaml
@@ -253,6 +255,9 @@ class Posts(object):
                 post.reference = data['reference']
                 post.body = data['body']
 
+            if not (Path(a_post[:a_post.rindex('/')]) / post.image).exists():
+                rprint(f"\n[red bold]The image associated to the post '{post.yaml_file}' " \
+                       "cannot be found[/red bold]\n")
             if verbose:
                 print(f"{post.date}: {post.title} (by {post.author})")
 
