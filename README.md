@@ -33,7 +33,7 @@ Once pushed, the new post will be populated into both the `blog` section and the
 
 
 
-### Getting a new member in the group?
+### A new member in the group?
 
 The people from the team follows a similar approach as the posts. Everything is self-contained inside the `team/` directory. In there, each person is defined with a yaml file (use `template.yaml` as a template) and a picture of themselves with `jpg` extension and same file name as the yaml file (use the surname as convention).
 
@@ -55,7 +55,9 @@ These contents get populated to the html files via simple Python scripts located
 - `parse_teams.py` takes all available people from the team and overwrites the `team.html` file.
 - `parse_index.py` takes all available posts and people and overwrites the `index.html` file.
 
-To make this, the scripts use the blog/team/index template files located in the `templates` directory. These html files are the same as the final ones but contain some keywords (i.e. `{{content}}`) to tell the script where to replace the text and introduce all the content.
+**One can manually run the scripts via `. actions/parse_all.sh`**
+
+The scripts use the blog/team/index template files located in the `templates` directory. These html files are the same as the final ones but contain some keywords (i.e. `{{content}}`) to tell the script where to replace the text and introduce all the content.
 
 Any additional modification of the website would need to be done through the HTML files. Note that some changes, as the menu bar, should be propagated across all the `.html` files.
 This is the tree of all important files in the repository:
