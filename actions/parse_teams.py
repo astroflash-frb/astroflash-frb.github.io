@@ -12,7 +12,7 @@ import traceback
 from pathlib import Path
 
 _ROLES = {'leader': 'Group Leader', 'staff': 'Staff', 'postdoc': 'PostDoc',
-          'phd': 'PhD students', 'master': 'Master Students',
+          'phd': 'PhD students', 'master': 'Master & Bachelor Students',
           'affiliated': 'Affiliated', 'former': 'Former Members'}
 
 class Researcher(object):
