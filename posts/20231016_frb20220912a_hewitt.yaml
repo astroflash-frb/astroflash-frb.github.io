@@ -1,0 +1,20 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+# Title of the post
+title: Dense Forests of Microshots in Bursts from FRB 20220912A
+# First name of the author of the post (only first name)
+author: Dante
+# Date of the post in YYYY-MM-DD format
+date: 2023-10-16
+# Category: can be "paper", "atel", "talk"
+category: paper
+# filename with the image to be shown in the header of the post. general.jpg will put the default one
+image: 20231016_frb20220912a_hewitt.jpg
+# Link to the website with more information. e.g. it can be the ADS url, or ATel page, etc.
+link: https://ui.adsabs.harvard.edu/abs/2023MNRAS.526.2039H/abstract
+# Final line in the post, if it is a publication, put the reference in a format similat to SAO/ADS
+# e.g.  Name et al. 1999, Journal, issue, page
+reference: Hewitt et al. 2023, MNRAS, 526, 2039
+# Write here the body of the post. Some characters may break the parsing, so you can use quotes for the full body.
+body: "We report on exceptionally bright bursts (>400 Jy ms) detected from the repeating fast radio burst source FRB 20220912A using the Nançay radio telescope (NRT), as part of the ECLAT (Extragalactic Coherent Light from Astrophysical Transients) monitoring campaign. These bursts exhibit extremely luminous, broad-band, short-duration structures (~16 μs), which we term 'microshots' and which can be especially well studied in the NRT data given the excellent signal-to-noise and dynamic range (32-bit samples). The estimated peak flux density of the brightest microshot is 450 Jy. We show that the microshots are clustered into dense 'forests' by modelling them as Weibull distributions and obtaining Weibull shape parameters of approximately 0.5. Our polarimetric analysis reveals that the bursts are nearly 100 per cent linearly polarized; have ≲10 per cent circular polarization fractions; a near-zero average rotation measure of 0.10(6) rad m<sup>-2</sup>; and varying polarization position angles over the burst duration. For one of the bursts, we analyse raw voltage data from simultaneous observations with the Westerbork RT-1 single 25-m dish. These data allow us to measure the scintillation bandwidth, 0.30(3) MHz, and to probe the bursts on (sub-)microsecond time-scales. Some important nuances related to dedispersion are also discussed. We propose that the emission mechanism for the broad-band microshots is potentially different from the emission mechanism of the broader burst components, which still show a residual drift of a few hundred MHz ms<sup>-1</sup> after correcting for dispersion using the microshots. We discuss how the observed emission is phenomenologically analogous to different types of radio bursts from the Sun."
