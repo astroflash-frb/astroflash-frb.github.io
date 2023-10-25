@@ -1,0 +1,20 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+# Title of the post
+title: Detection of ultra-fast radio bursts from FRB 20121102A
+# First name of the author of the post (only first name)
+author: Mark
+# Date of the post in YYYY-MM-DD format
+date: 2023-10-19
+# Category: can be "paper", "atel", "talk"
+category: paper
+# filename with the image to be shown in the header of the post. general.jpg will put the default one
+image: 20231019_frb20121102aSnelders.jpg
+# Link to the website with more information. e.g. it can be the ADS url, or ATel page, etc.
+link: https://www.nature.com/articles/s41550-023-02101-x
+# Final line in the post, if it is a publication, put the reference in a format similat to SAO/ADS
+# e.g.  Name et al. 1999, Journal, issue, page
+reference: Snelders et al. 2023, Nature Astronomy
+# Write here the body of the post. Some characters may break the parsing, so you can use quotes for the full body.
+body: "Fast radio bursts (FRBs) are extragalactic transient flashes of radio waves with typical durations of milliseconds. FRBs have been shown, however, to present a wide range of timescales: some show sub-microsecond sub-bursts while others last up to a few seconds. Probing FRBs on a range of timescales is crucial for understanding their emission physics, how to detect them effectively and how to maximize their utility as astrophysical probes. FRB 20121102A is the first known repeating FRB source. Here we show that FRB 20121102A produces isolated microsecond-duration bursts with durations less than one-tenth the duration of other currently known FRBs. The polarimetric properties of these microsecond-duration bursts resemble those of the longer-lasting bursts, suggesting a common emission mechanism producing FRBs with durations spanning three orders of magnitude. In detecting and characterizing these microsecond-duration bursts, we show that there exists a population of ultra-fast radio bursts that current wide-field FRB searches are missing due to insufficient time resolution. These results indicate that FRBs occur more frequently and with greater diversity than initially thought. This could also influence our understanding of energy, wait time and burst rate distributions."
