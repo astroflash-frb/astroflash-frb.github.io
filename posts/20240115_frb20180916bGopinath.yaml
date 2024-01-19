@@ -1,0 +1,20 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+# Title of the post
+title: Propagation effects at low frequencies seen in the LOFAR long-term monitoring of the periodically active FRB 20180916B
+# First name of the author of the post (only first name)
+author: Akshatha
+# Date of the post in YYYY-MM-DD format
+date: 2024-01-15
+# Category: can be "paper", "atel", "talk"
+category: paper
+# filename with the image to be shown in the header of the post. general.jpg will put the default one
+image: 20240115_frb20180916bGopinath.jpg
+# Link to the website with more information. e.g. it can be the ADS url, or ATel page, etc.
+link: https://ui.adsabs.harvard.edu/abs/2024MNRAS.527.9872G/abstract
+# Final line in the post, if it is a publication, put the reference in a format similat to SAO/ADS
+# e.g.  Name et al. 1999, Journal, issue, page
+reference: Gopinath et al. 2024, MNRAS.
+# Write here the body of the post. Some characters may break the parsing, so you can use quotes for the full body.
+body: "LOFAR (LOw Frequency ARray) has previously detected bursts from the periodically active, repeating fast radio burst (FRB) source FRB 20180916B down to unprecedentedly low radio frequencies of 110 MHz. Here, we present 11 new bursts in 223 more hours of continued monitoring of FRB 20180916B in the 110-188 MHz band with LOFAR. We place new constraints on the source's activity window <em>w</em> = 4.3<sup>+0.7</sup><sub>-0.2</sub> d and phase centre <em>phi</em><sub>c</sub><sup>LOFAR</sup> = 0.67<sup>+0.03</sup><sub>-0.02</sub> in its 16.33-d activity cycle, strengthening evidence for its frequency-dependent activity cycle. Propagation effects like Faraday rotation and scattering are especially pronounced at low frequencies and constrain properties of FRB 20180916B's local environment. We track variations in scattering and time-frequency drift rates, and find no evidence for trends in time or activity phase. Faraday rotation measure (RM) variations seen between June 2021 and August 2022 show a fractional change >50 per cent with hints of flattening of the gradient of the previously reported secular trend seen at 600 MHz. The frequency-dependent window of activity at LOFAR appears stable despite the significant changes in RM, leading us to deduce that these two effects have different causes. Depolarization of and within individual bursts towards lower radio frequencies is quantified using LOFAR's large fractional bandwidth, with some bursts showing no detectable polarization. However, the degree of depolarization seems uncorrelated to the scattering time-scales, allowing us to evaluate different depolarization models. We discuss these results in the context of models that invoke rotation, precession, or binary orbital motion to explain the periodic activity of FRB 20180916B."
