@@ -1,0 +1,20 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+# Title of the post
+title: A link between repeating and non-repeating fast radio bursts through their energy distributions
+# First name of the author of the post (only first name)
+author: Franz
+# Date of the post in YYYY-MM-DD format
+date: 2024-01-04
+# Category: can be "paper", "atel", "talk"
+category: paper
+# filename with the image to be shown in the header of the post. general.jpg will put the default one
+image: 20240104_frb20201124aKirsten.jpg
+# Link to the website with more information. e.g. it can be the ADS url, or ATel page, etc.
+link: https://www.nature.com/articles/s41550-023-02153-z
+# Final line in the post, if it is a publication, put the reference in a format similat to SAO/ADS
+# e.g.  Name et al. 1999, Journal, issue, page
+reference: Kirsten, Ould-Boukattine et al. 2024, Nature Astronomy.
+# Write here the body of the post. Some characters may break the parsing, so you can use quotes for the full body.
+body: "Fast radio bursts (FRBs) are extremely energetic, millisecond-duration radio flashes that reach Earth from extragalactic distances. Broadly speaking, FRBs can be classified as repeating or (apparently) non-repeating. It is still unclear, however, whether the two types share a common physical origin and differ only in their activity rate. Here we report on an observing campaign that targeted one hyperactive repeating source, FRB 20201124A, for more than 2,000 h using four 25–32 m class radio telescopes. We detected 46 high-energy bursts, many more than one would expect given previous observations of lower-energy bursts using larger radio telescopes. We find a high-energy burst distribution that resembles that of the non-repeating FRB population, suggesting that apparently non-repeating FRB sources may simply be the rarest bursts from repeating sources. Also, we discuss how FRB 20201124A contributes strongly to the all-sky FRB rate and how similar sources would be observable even at very high redshift."

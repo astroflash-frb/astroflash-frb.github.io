@@ -1,0 +1,20 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+# Title of the post
+title: Constraints on the Persistent Radio Source Associated with FRB 20190520B Using the European VLBI Network
+# First name of the author of the post (only first name)
+author: Shivani
+# Date of the post in YYYY-MM-DD format
+date: 2023-12-20
+# Category: can be "paper", "atel", "talk"
+category: paper
+# filename with the image to be shown in the header of the post. general.jpg will put the default one
+image: 20231220_frb20190520bBhandari.jpg
+# Link to the website with more information. e.g. it can be the ADS url, or ATel page, etc.
+link: https://ui.adsabs.harvard.edu/abs/2023ApJ...958L..19B/abstract
+# Final line in the post, if it is a publication, put the reference in a format similat to SAO/ADS
+# e.g.  Name et al. 1999, Journal, issue, page
+reference: Bhandari, Marcote, et al. 2023, ApJL, 958, 2, L19
+# Write here the body of the post. Some characters may break the parsing, so you can use quotes for the full body.
+body: "We present very long baseline interferometry (VLBI) observations of a continuum radio source potentially associated with the fast radio burst source FRB 20190520B. Using the European VLBI network, we find the source to be compact on VLBI scales with an angular size of <2.3 mas (3σ). This corresponds to a transverse physical size of <9 pc (at the z = 0.241 redshift of the host galaxy), confirming it to be as fast radio burst (FRB) persistent radio source (PRS) like that associated with the first-known repeater FRB 20121102A. The PRS has a flux density of 201 ± 34 μJy at 1.7 GHz and a spectral radio luminosity of L 1.7 GHz = (3.0 ± 0.5) × 1029 erg s-1 Hz-1 (also similar to the FRB 20121102A PRS). Compared to previous lower-resolution observations, we find that no flux is resolved out on milliarcsecond scales. We have refined the PRS position, improving its precision by an order of magnitude compared to previous results. We also report the detection of the FRB 20190520B burst at 1.4 GHz and find the burst position to be consistent with the PRS position, at ≲20 mas. This strongly supports their direct physical association and the hypothesis that a single central engine powers both the bursts and the PRS. We discuss the model of a magnetar in a wind nebula and present an allowed parameter space for its age and the radius of the putative nebula powering the observed PRS emission. Alternatively, we find that an accretion-powered hypernebula model also fits our observational constraints."
