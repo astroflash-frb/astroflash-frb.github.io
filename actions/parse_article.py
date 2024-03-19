@@ -10,8 +10,10 @@ from pathlib import Path
 from rich import print as rprint
 import datetime as dt
 import glob
+from typing import Optional #, Union
 import yaml
 import traceback
+
 
 
 categories = {'paper': 'Papers', 'atel': 'ATels', 'talk': 'Talks', 'other': 'Other'}
@@ -75,6 +77,15 @@ class Post(object):
         self._image = new_par
 
     @property
+    def image_caption(self):
+        return self._caption
+
+    @image_caption.setter
+    def image_caption(self, new_caption: Optional[str]):
+        assert isinstance(new_caption, str) or (new_caption is None)
+        self._caption = new_caption
+
+    @property
     def link(self):
         return self._link
 
@@ -105,13 +116,14 @@ class Post(object):
             self._reference = new_par
 
     def __init__(self, yaml=None, title=None, author=None, date=None, category=None, image=None,
-                 link=None, body=None, reference=None):
+                 link=None, body=None, reference=None, caption=None):
         self.yaml_file = yaml
         self._title = title
         self._author = author
         self._date = date
         self.category = category
         self._image = image
+        self._caption = caption
         self._link = link
         self._body = body
         self._reference = reference
@@ -142,6 +154,7 @@ class Post(object):
                     <div class="post-image-wrapper">
                         <img src="{imgpath}" class="img-fluid" alt="" />
                         <span class="blog-date"> {date}</span>
+                        <label>{imgcaption}</label>
                     </div>
                     <div class="post-header clearfix">
                         <h2 class="post-title">
@@ -166,7 +179,7 @@ class Post(object):
                        blog_url=topdir + "/blog/" + self.yaml_file.replace('.yaml', '.html'),
                        date=self.date.strftime('%B %d, %Y'), title=self.title, author=self.author,
                        pubtype=categories[self.category], body=self.body, reference=self.reference,
-                       link=link_button)
+                       link=link_button, imgcaption='' if self.image_caption is None else self.image_caption)
 
     def shorten_title(self, max_length_char=85):
         if len(self.title) <= max_length_char:
@@ -250,6 +263,7 @@ class Posts(object):
                 post.author = data['author']
                 post.date = data['date']
                 post.category = data['category']
+                post.image_caption = data['caption'] if 'caption' in data else None
                 post.image = data['image']
                 post.link = data['link']
                 post.reference = data['reference']
