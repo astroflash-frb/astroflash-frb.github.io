@@ -16,68 +16,70 @@ import traceback
 
 
 
-categories = {'paper': 'Papers', 'atel': 'ATels', 'talk': 'Talks', 'other': 'Other'}
+categories: dict[str, str] = {'paper': 'Papers', 'atel': 'ATels', 'talk': 'Talks', 'other': 'Other'}
 
 
 class Post(object):
-
+    """Defines an article (post) for the blog part of the website.
+    """
     @property
-    def yaml_file(self):
+    def yaml_file(self) -> str:
         return self._yaml
 
     @yaml_file.setter
     def yaml_file(self, new_file: str):
+        assert isinstance(new_file, str)
         self._yaml = new_file
 
     @property
-    def title(self):
+    def title(self) -> str:
         return self._title
 
     @title.setter
-    def title(self, new_par):
+    def title(self, new_par: str):
         assert isinstance(new_par, str)
         self._title = new_par
 
     @property
-    def author(self):
+    def author(self) -> str:
         return self._author
 
     @author.setter
-    def author(self, new_par):
+    def author(self, new_par: str):
         assert isinstance(new_par, str)
         self._author = new_par
 
     @property
-    def date(self):
+    def date(self) -> dt.date:
         return self._date
 
     @date.setter
-    def date(self, new_par):
+    def date(self, new_par: dt.date):
         assert isinstance(new_par, dt.date), \
                f"The value {new_par} (from {self.title}) cannot be parsed into a datetime object."
         self._date = new_par
 
     @property
-    def category(self):
+    def category(self) -> str:
         return self._category
 
     @category.setter
-    def category(self, new_par):
+    def category(self, new_par: str):
         assert (new_par in categories) or (new_par is None), \
                f"{new_par} is not a valid category (accepted values: {categories.keys()})"
         self._category = new_par
 
     @property
-    def image(self):
+    def image(self) -> str:
         return self._image
 
     @image.setter
-    def image(self, new_par):
+    def image(self, new_par: str):
         assert isinstance(new_par, str)
         self._image = new_par
 
     @property
-    def image_caption(self):
+    def image_caption(self) -> Optional[str]:
         return self._caption
 
     @image_caption.setter
@@ -86,50 +88,52 @@ class Post(object):
         self._caption = new_caption
 
     @property
-    def link(self):
+    def link(self) -> Optional[str]:
         return self._link
 
     @link.setter
-    def link(self, new_par):
-        assert isinstance(new_par, str) or new_par is None
+    def link(self, new_par: Optional[str]):
+        assert isinstance(new_par, str) or (new_par is None)
         self._link = new_par
 
     @property
-    def body(self):
+    def body(self) -> str:
         return self._body
 
     @body.setter
-    def body(self, new_par):
+    def body(self, new_par: str):
         assert isinstance(new_par, str)
         self._body = new_par
 
     @property
-    def reference(self):
+    def reference(self) -> Optional[str]:
         return self._reference
 
     @reference.setter
-    def reference(self, new_par):
-        assert isinstance(new_par, str)
-        if (len(new_par) > 0) and (new_par[-1] != '.'):
+    def reference(self, new_par: Optional[str]):
+        assert isinstance(new_par, str) or (new_par is None)
+        if new_par is None:
+            self._reference = None
+        elif (len(new_par) > 0) and (new_par[-1] != '.'):
             self._reference = new_par + '.'
         else:
             self._reference = new_par
 
-    def __init__(self, yaml=None, title=None, author=None, date=None, category=None, image=None,
-                 link=None, body=None, reference=None, caption=None):
+    def __init__(self, yaml, title, author, date, category, body, image,
+                 link=None, reference=None, caption=None):
         self.yaml_file = yaml
-        self._title = title
-        self._author = author
-        self._date = date
+        self.title = title
+        self.author = author
+        self.date = date
         self.category = category
-        self._image = image
-        self._caption = caption
-        self._link = link
-        self._body = body
-        self._reference = reference
+        self.image = image
+        self.image_caption = caption
+        self.link = link
+        self.body = body
+        self.reference = reference
 
-    def format_post(self, topdir='.'):
-        def linktype(a_link):
+    def format_post(self, topdir='.') -> str:
+        def linktype(a_link: Optional[str]) -> Optional[str]:
             if a_link is None:
                 return None
             elif 'adsabs' in a_link:
@@ -181,13 +185,13 @@ class Post(object):
                        pubtype=categories[self.category], body=self.body, reference=self.reference,
                        link=link_button, imgcaption='' if self.image_caption is None else self.image_caption)
 
-    def shorten_title(self, max_length_char=85):
+    def shorten_title(self, max_length_char: int = 85) -> str:
         if len(self.title) <= max_length_char:
             return self.title
 
         return self.title[:self.title.rindex(' ', 0, max_length_char+1)] + '...'
 
-    def format_short_post(self, fullpath='./'):
+    def format_short_post(self, fullpath: str = './') -> str:
         img_path = f"{fullpath}{self.image}" if fullpath[-1] == '/' else f"{fullpath}/{self.image}"
         return """<div class="feature-box col-md-6 col-lg-6 wow fadeInDown" data-wow-delay=".5s">
                         <div class="posts-thumb float-left px-3">
@@ -209,18 +213,18 @@ class Post(object):
 
 
 class Posts(object):
-    """Posts
+    """A list of Posts.
     """
     @property
-    def posts(self):
+    def posts(self) -> list[Post]:
         return self._posts
 
     @posts.setter
-    def posts(self, posts):
+    def posts(self, posts: list[Post]):
         assert isinstance(posts, list), "posts must be a list."
-        self._posts = posts
+        self._posts: list[Post] = posts
 
-    def __init__(self, posts=None):
+    def __init__(self, posts: Optional[list[Post]] = None):
         if posts is None:
             self._posts = []
         else:
@@ -257,17 +261,11 @@ class Posts(object):
         for a_post in all_posts:
             with open(a_post, 'r') as postfile:
                 data = yaml.load(postfile, Loader=yaml.loader.SafeLoader)
-                post = Post()
-                post.yaml_file = a_post[a_post.rindex('/')+1:]
-                post.title = data['title']
-                post.author = data['author']
-                post.date = data['date']
-                post.category = data['category']
-                post.image_caption = data['caption'] if 'caption' in data else None
-                post.image = data['image']
-                post.link = data['link']
-                post.reference = data['reference']
-                post.body = data['body']
+                post: Post = Post(yaml=a_post[a_post.rindex('/')+1:], title=data['title'],
+                                        author=data['author'], date=data['date'], category=data['category'],
+                                        caption=data['caption'] if 'caption' in data else None,
+                                        image=data['image'], link=data['link'], reference=data['reference'],
+                                        body=data['body'])
 
             if not (Path(a_post[:a_post.rindex('/')]) / post.image).exists():
                 rprint(f"\n[red bold]The image associated to the post '{post.yaml_file}' " \
