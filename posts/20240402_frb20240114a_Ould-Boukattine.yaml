@@ -13,10 +13,10 @@ category: atel
 image: "20240402_frb20240114a_Ould-Boukattine.jpg"
 caption: "Dedispersed dynamic spectra and frequency averaged time series of a selection of bursts from FRB 20240114A detected with different telescopes at various frequencies. All data are dedispersed using DM = 527.7 pc cm<sup>-3</sup>. The time and frequency resolutions are labeled in the figures."
 # Link to the website with more information. e.g. it can be the ADS url, or ATel page, etc.
-link:
+link: "https://www.astronomerstelegram.org/?read=16565"
 # Final line in the post, if it is a publication, put the reference in a format similat to SAO/ADS
 # e.g.  Name et al. 1999, Journal, issue, page
-reference: "Ould-Boukattine et al. 2024, The Astronomer's Telegram, No. XXXXX."
+reference: "Ould-Boukattine et al. 2024, The Astronomer's Telegram, No. 16565."
 # Write here the body of the post. Some characters may break the parsing, so you can use quotes for the full body.
 body: "We report on our ongoing high-cadence monitoring campaign of the actively repeating fast radio burst source FRB 20240114 (<a href='http://astronomerstelegram.org/?read=16420'>ATel #16420</a>). Since its discovery by CHIME/FRB in January 2024 (<a href='http://astronomerstelegram.org/?read=16420'>ATel #16420</a>), we have been observing FRB 20240114 daily at P-band (0.33 GHz), L-band (1.4 GHz) and C-band (4.5 GHz) using a set of five small 25-32 meter European radio telescopes. The participating telescopes are the 25-m RT-1 Westerbork telescope (the Netherlands), the 25-m Stockert telescope (Germany), the 32-m Torun telescope (Poland), the 25-m Onsala O8 telescope (Sweden), and the 25-m Dwingeloo dish (the Netherlands). Whenever possible, the telescopes observe simultaneously at complementary wavelengths.<br><br>
 
