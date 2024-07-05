@@ -230,6 +230,9 @@ class Posts(object):
         else:
             self._posts = posts
 
+    def __len__(self):
+        return len(self._posts)
+
     def sorted(self, reverse=False):
         if reverse:
             return sorted(self._posts, key=lambda t: t.date)[::-1]
@@ -253,12 +256,12 @@ class Posts(object):
         return cats
 
     def get_posts(self, path='../posts/*.yaml', verbose=False):
-        all_posts = glob.glob(path)
-        all_posts.remove(all_posts[all_posts.index('../posts/template.yaml')])  # check if remove gets this input
+        all_posts = [p for p in glob.glob(path) if "template" not in p]
         if verbose:
             print("Found the following blog posts:")
 
         for a_post in all_posts:
+            print(f"I am here!!!!      {a_post=}")
             with open(a_post, 'r') as postfile:
                 data = yaml.load(postfile, Loader=yaml.loader.SafeLoader)
                 post: Post = Post(yaml=a_post[a_post.rindex('/')+1:], title=data['title'],

@@ -184,6 +184,9 @@ class Researchers(object):
         else:
             self._researchers = researchers
 
+    def __len__(self):
+        return len(self._researchers)
+
     def pop(self, filename=None, name=None):
         """Pops the given researcher from the list of researchers.
         Either the 'filename' or 'name' attributes must be provided to localize the researcher.
@@ -209,8 +212,7 @@ class Researchers(object):
         self._researchers.append(new_researcher)
 
     def get_researchers(self, path='../team/*.yaml', verbose=False):
-        all_people = glob.glob(path)
-        all_people.remove(all_people[all_people.index('../team/template.yaml')])
+        all_people = [p for p in glob.glob(path) if 'template' not in p]
         if verbose:
             print("People found in the team:")
 
