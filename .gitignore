@@ -132,3 +132,4 @@ dmypy.json
 .gitignore
 .DS_Store
 */.DS_Store
+.snakemake
