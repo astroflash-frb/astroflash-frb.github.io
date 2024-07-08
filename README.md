@@ -3,20 +3,12 @@
 # AstroFlash Website
 
 This is the repository that holds the [website of the AstroFlash group](https://astroflash-frb.github.io).
-The website has been built as plain HTML files
-
-
-Two main areas can be updated without touching HTML code!
-
 Anyone with access to the `Astroflash-frb` repository should be able to push updates to this repository. And thus keep the website up to date.
-This website follows the same principles as [the Hugo framework](https://gohugo.io). However, to get the current static html template working properly in a fast timeline, I just replicated this approach via some ad-doc Python scripts to the parts we are interested.
 
-That means that there are two sections (the _blog_ and the _Team_ page) where one only needs to write the information in a _yaml_ file, without code. For major changes in the template a direct editing of the HTML files would be required.
+To keep the information up to date, **it is not needed to modify any of the .html files**. You will only need to create a new .yaml file inside the `posts/` or `team/` folder (to create a new blog post or add a new person in the group), plus a image file if appropriate. In the following this process is described in more detailed.
 
-**Note that index.html, team.html and blog.html should never be edited manually**
-Their corresponding files under `templates/` (`blog_template.html`, `index_template.html`, and `team_template.html`) should be the ones modified instead (only if you want to change the _style_ of the pages).
-
-In the following you have the instructions to add a new post entry or a new member in the group. Once you add and edit the necessary files, you just need to run `snakemake` in the main directory to propagate and update all html files.
+**And note that index.html, team.html and blog.html should never be edited manually**
+Their corresponding files under `templates/` (`blog_template.html`, `index_template.html`, and `team_template.html`) should be the ones modified instead (and only if you want to change the _style_ of the pages).
 
 
 
@@ -25,11 +17,11 @@ In the following you have the instructions to add a new post entry or a new memb
 The [Latest Results blog section](https://astroflash-frb.github.io/blog.html) page is generated automatically after pushing new contents to the repository.
 
 The contents of the entries are located in the `posts` directory.
-To create a new post you would only need to create a single `yaml` file in there with the contents of the post (use the `template.yaml`, or any of the existing files, as a template). It is recommend to also include an image file in the same directory, linked in the post, to be used as header image for it.
+To create a new post you would only need to create a single `yaml` file in there with the contents of the post (use the `template.yaml`, or any of the existing files, as a template). It is recommend to also include an image file in the same directory, linked in the post, to be used as header image for it. For simplicity, you can keep the same name as for the post .yaml file.
 
 The `template.yaml` explains to you the different fields that you need to include. To keep it sorted, please use the file name convention `YYYYMMDD_descriptive-word-author.yaml`.
 
-Once pushed, the new post will be populated into both the `blog` section and the `index` page of the website.
+Once pushed to GitHub, the new post will be populated into both the `blog` section and the `index` page of the website.
 
 
 
@@ -39,11 +31,15 @@ The people from the team follows a similar approach as the posts. Everything is 
 
 The `template.yaml` describes all required and optional fields.
 
+And again, once pushed to GitHub, the new team member will appear into both the `team` section and the `index` page of the website.
 
 
 ## A more in-depth structure explanation
 
 (for the nerds and future maintainers)
+
+This website follows the same principles as [the Hugo framework](https://gohugo.io). However, for simplicity, I just replicated this approach via a couple of ad-doc Python scripts to the parts we are interested.
+
 
 This is a fully-static website using a Bootstrap theme.
 To simplify the standard operations (specially to make fast and easy the creation of new posts), the following contents are just stored under individual `yaml` files:
@@ -78,8 +74,11 @@ The following files should only be read (never modified my hand), as they get re
 - `blog.html` - gets generated from the `templates/blog_template.html` file and the `actions/parse_article.py` script.
 - `team.html` - gets generated from the `templates/team_template.html` file and the `actions/parse_teams.py` script.
 
+**Note that index.html, team.html and blog.html should never be edited manually**
+Their corresponding files under `templates/` (`blog_template.html`, `index_template.html`, and `team_template.html`) should be the ones modified instead (only if you want to change the _style_ of the pages).
 
-In GitHub, there are two actions that run automatically after every pull request or repository push:
-- `populate_templates.yml` (also editable under `.github/workflows/`) - checks for flake8 style in the Python scripts and executes the three of them (`cd actions;python3 parse_article.py`, `parse_teams.py`, `parse_index.py`).
-- `pages-build-deployment.yml` - only visible in GitHub. This is the GitHub automatic action that populates the repository into the [visible website](https://astroflash-frb.github.io). If something fails or gets wrong, the website will kept the latest working version of the repository.
+
+In GitHub, there is one action that runs automatically after every pull request or repository push:
+- Launches the snakemake file to check if there have been modified (or new) files and then it populates them into the necessary files (e.g. creating new blog posts, people for the team, and updating all .html files).
+- Finally, the GitHub automatic action that populates the repository into the [visible website](https://astroflash-frb.github.io). If something fails or gets wrong, the website will kept the latest working version of the repository.
 
