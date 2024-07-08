@@ -6,6 +6,7 @@ containing the different articles.
 
 import os
 import sys
+import argparse
 from pathlib import Path
 from rich import print as rprint
 import datetime as dt
@@ -255,8 +256,8 @@ class Posts(object):
 
         return cats
 
-    def get_posts(self, path='../posts/*.yaml', verbose=False):
-        all_posts = [p for p in glob.glob(path) if "template" not in p]
+    def get_posts(self, path='../posts/', verbose=False):
+        all_posts = [p for p in glob.glob(path + "*.yaml") if "template" not in p]
         if verbose:
             print("Found the following blog posts:")
 
@@ -329,19 +330,37 @@ def merge_posts_in_html(posts, html_template, output_html, post_template, posts_
         outhtml.write(full_html)
 
 
-def main():
+def main(html_template, output_html, post_template, outposts_dir, inposts_dir, verbose=False):
     try:
         p = Posts()
-        p.get_posts(verbose=True)
+        p.get_posts(path=inposts_dir, verbose=True)
         p.sort(reverse=True)
     except Exception:
         print('*** Error occurred while processing posts.')
         traceback.print_exc()
         sys.exit(1)
 
-    merge_posts_in_html(p, '../templates/blog_template.html', '../blog.html',
-                        '../templates/blog-item-template.html', '../blog/', True)
+    merge_posts_in_html(p, html_template=html_template, output_html=output_html,
+                        post_template=post_template, posts_dir=outposts_dir, verbose=verbose)
 
 
 if __name__ == '__main__':
-    main()
+    usage = "%(prog)s [-h]  parse_article.py"
+    description = "Creates the blog posts based on the current yaml posts files"
+    parser = argparse.ArgumentParser(description=description, prog="", usage=usage)
+    parser.add_argument('-t', '--template', type=str, default='../templates/blog_template.html',
+                        help='blog.html template file.')
+    parser.add_argument('-i', '--item-template', type=str, default='../templates/blog-item-template.html',
+                        help='post template file.')
+    parser.add_argument('-o', '--output', type=str, default='../blog.html',
+                        help='blog.html file to be created.')
+    parser.add_argument('-d', '--dir-output', type=str, default='../blog/',
+                        help='Directory to contain all blog posts.')
+    parser.add_argument('-p', '--posts', type=str, default='../posts/',
+                        help='Directory that contains the input to create all blog posts.')
+    parser.add_argument('-v', '--verbose', action='store_true', default=False)
+
+
+    args = parser.parse_args()
+
+    main(args.template, args.output, args.item_template, args.dir_output, args.posts, args.verbose)

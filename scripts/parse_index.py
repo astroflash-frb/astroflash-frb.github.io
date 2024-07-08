@@ -44,7 +44,7 @@ def main(index_template='../templates/index_template.html', output_html='../inde
         if Path.cwd().name == 'scripts':
             p.get_posts(verbose=True)
         else:
-            p.get_posts(path='posts/*.yaml', verbose=True)
+            p.get_posts(path='posts/', verbose=True)
 
         p.sort(reverse=True)
         logger.info(f"There are {len(p)} posts.")

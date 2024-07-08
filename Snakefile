@@ -15,8 +15,8 @@ rule all:
     input:
         expand("blog/{yaml_file}", yaml_file=[afile.name.replace('.yaml', '.html') for afile in blog_entries]),
         expand("{person_entry}", person_entry=team_entries)
-    output:
-        "index.html"
+    # output:
+    #     "index.html"
     shell:
         "python3 scripts/parse_index.py -t templates/index_template.html -o index.html"
     # run:
@@ -30,20 +30,22 @@ rule all:
 rule blog_entries:
     input: "posts/{entry}.yaml"
     output: blog_entries="blog/{entry}.html"
-    run:
-        """
-        from scripts import parse_article as pblog
-        try:
-            p = pblog.Posts()
-            p.get_posts(verbose=True)
-            p.sort(reverse=True)
-        except Exception:
-            print('*** Error occurred while processing posts.')
-            sys.exit(1)
-
-        pblog.merge_posts_in_html(p, 'templates/blog_template.html', 'blog.html',
-                        'templates/blog-item-template.html', 'blog/', True)
-        """
+    shell:
+        "python3 scripts/parse_article.py -t templates/blog_template.html -o blog.html -i templates/blog-item-template.html -d blog/ -p posts/ -v"
+    # run:
+    #     """
+    #     from scripts import parse_article as pblog
+    #     try:
+    #         p = pblog.Posts()
+    #         p.get_posts(verbose=True)
+    #         p.sort(reverse=True)
+    #     except Exception:
+    #         print('*** Error occurred while processing posts.')
+    #         sys.exit(1)
+    #
+    #    pblog.merge_posts_in_html(p, 'templates/blog_template.html', 'blog.html',
+    #                    'templates/blog-item-template.html', 'blog/', True)
+    #    """
 
 
 rule team_entries:
