@@ -6,8 +6,6 @@ This is the repository that holds the [website of the AstroFlash group](https://
 The website has been built as plain HTML files
 
 
-## Do you want to update content?
-
 Two main areas can be updated without touching HTML code!
 
 Anyone with access to the `Astroflash-frb` repository should be able to push updates to this repository. And thus keep the website up to date.
@@ -16,7 +14,9 @@ This website follows the same principles as [the Hugo framework](https://gohugo.
 That means that there are two sections (the _blog_ and the _Team_ page) where one only needs to write the information in a _yaml_ file, without code. For major changes in the template a direct editing of the HTML files would be required.
 
 **Note that index.html, team.html and blog.html should never be edited manually**
-Their corresponding files under `templates/` (`blog_template.html`, `index_template.html`, and `team_template.html`) should be the ones modified instead.
+Their corresponding files under `templates/` (`blog_template.html`, `index_template.html`, and `team_template.html`) should be the ones modified instead (only if you want to change the _style_ of the pages).
+
+In the following you have the instructions to add a new post entry or a new member in the group. Once you add and edit the necessary files, you just need to run `snakemake` in the main directory to propagate and update all html files.
 
 
 
@@ -25,7 +25,7 @@ Their corresponding files under `templates/` (`blog_template.html`, `index_templ
 The [Latest Results blog section](https://astroflash-frb.github.io/blog.html) page is generated automatically after pushing new contents to the repository.
 
 The contents of the entries are located in the `posts` directory.
-To create a new post you would only need to create a single `yaml` file in there with the contents of the post (use the `template.yaml` as a template). It is recommend to also include an image file in the same directory, linked in the post, to be used as header image for it.
+To create a new post you would only need to create a single `yaml` file in there with the contents of the post (use the `template.yaml`, or any of the existing files, as a template). It is recommend to also include an image file in the same directory, linked in the post, to be used as header image for it.
 
 The `template.yaml` explains to you the different fields that you need to include. To keep it sorted, please use the file name convention `YYYYMMDD_descriptive-word-author.yaml`.
 
@@ -54,8 +54,9 @@ These contents get populated to the html files via simple Python scripts located
 - `parse_article.py` takes all available posts and overwrites the `blog.html` file.
 - `parse_teams.py` takes all available people from the team and overwrites the `team.html` file.
 - `parse_index.py` takes all available posts and people and overwrites the `index.html` file.
+- `parse_all.sh` shell script that can run all previous Python scripts.
 
-**One can manually run the scripts via `. actions/parse_all.sh`**
+All this is clustered in `Snakefile`, which is a Make-like file (Snakemake to be precise), which runs all these scripts when needed (only when files have been updated).
 
 The scripts use the blog/team/index template files located in the `templates` directory. These html files are the same as the final ones but contain some keywords (i.e. `{{content}}`) to tell the script where to replace the text and introduce all the content.
 
