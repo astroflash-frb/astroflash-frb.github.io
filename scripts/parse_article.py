@@ -11,10 +11,16 @@ from pathlib import Path
 from rich import print as rprint
 import datetime as dt
 import glob
+import logging
 from typing import Optional #, Union
 import yaml
 import traceback
 
+logging.basicConfig(level=logging.INFO,
+                    format="%(levelname)s : %(asctime)s - %(message)s",
+                    datefmt="%Y-%m-%d %H:%M:%S")
+logger = logging.getLogger('main_M33_WR.py')
+logger.addHandler(logging.FileHandler(filename='log-python.log'))
 
 
 categories: dict[str, str] = {'paper': 'Papers', 'atel': 'ATels', 'talk': 'Talks', 'other': 'Other'}
@@ -259,7 +265,7 @@ class Posts(object):
     def get_posts(self, path='../posts/', verbose=False):
         all_posts = [p for p in glob.glob(path + "*.yaml") if "template" not in p]
         if verbose:
-            print("Found the following blog posts:")
+            logger.info("Found the following blog posts:")
 
         for a_post in all_posts:
             with open(a_post, 'r') as postfile:
@@ -271,10 +277,10 @@ class Posts(object):
                                         body=data['body'])
 
             if not (Path(a_post[:a_post.rindex('/')]) / post.image).exists():
-                rprint(f"\n[red bold]The image associated to the post '{post.yaml_file}' " \
-                       "cannot be found[/red bold]\n")
+                logger.info(f"\n[red bold]The image associated to the post '{post.yaml_file}' " \
+                            "cannot be found[/red bold]\n")
             if verbose:
-                print(f"{post.date}: {post.title} (by {post.author})")
+                logger.info(f"{post.date}: {post.title} (by {post.author})")
 
             self.append(post)
 
@@ -301,7 +307,7 @@ def merge_posts_in_html(posts, html_template, output_html, post_template, posts_
     assert os.path.isfile(post_template), f"The file {post_template} was not found."
     with open(html_template, 'r') as template:
         if verbose:
-            print(f"Reading html information from {html_template}")
+            logger.info(f"Reading html information from {html_template}")
 
         full_html = ''.join(template.readlines())
         full_html = full_html.replace('{{template}}', posts.format_posts())
@@ -309,7 +315,7 @@ def merge_posts_in_html(posts, html_template, output_html, post_template, posts_
 
     with open(post_template, 'r') as template:
         if verbose:
-            print(f"Reading html information from {post_template}")
+            logger.info(f"Reading html information from {post_template}")
 
         full_post_html = ''.join(template.readlines())
 
@@ -317,12 +323,12 @@ def merge_posts_in_html(posts, html_template, output_html, post_template, posts_
         with open(f"{posts_dir}{'/' if posts_dir[-1] != '/' else ''}" \
                   f"{a_post.yaml_file.replace('.yaml', '.html')}", 'w') as post_template:
             if verbose:
-                print(f"Generating html for post {a_post.yaml_file.replace('.yaml', '')}.")
+                logger.info(f"Generating html for post {a_post.yaml_file.replace('.yaml', '')}.")
 
             post_template.write(full_post_html.replace('{{template}}', a_post.format_post(topdir='..')))
 
     if verbose:
-        print(f"Writting html information to {output_html} "
+        logger.info(f"Writting html information to {output_html} "
               f"({'exists' if os.path.isfile(output_html) else 'does not exist'})")
 
     with open(output_html, 'w') as outhtml:
@@ -335,7 +341,7 @@ def main(html_template, output_html, post_template, outposts_dir, inposts_dir, v
         p.get_posts(path=inposts_dir, verbose=True)
         p.sort(reverse=True)
     except Exception:
-        print('*** Error occurred while processing posts.')
+        logger.error('*** Error occurred while processing posts.')
         traceback.print_exc()
         sys.exit(1)
 

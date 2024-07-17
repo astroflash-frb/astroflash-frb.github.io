@@ -8,12 +8,20 @@ import os
 import sys
 import glob
 import yaml
+import logging
+import argparse
 import traceback
 from pathlib import Path
 
 _ROLES = {'leader': 'Group Leader', 'staff': 'Staff', 'postdoc': 'PostDoc',
           'phd': 'PhD students', 'master': 'Master & Bachelor Students',
           'affiliated': 'Affiliated', 'former': 'Former Members'}
+
+logging.basicConfig(level=logging.INFO,
+                    format="%(levelname)s : %(asctime)s - %(message)s",
+                    datefmt="%Y-%m-%d %H:%M:%S")
+logger = logging.getLogger('main_M33_WR.py')
+logger.addHandler(logging.FileHandler(filename='log-python.log'))
 
 class Researcher(object):
     @property
@@ -76,7 +84,7 @@ class Researcher(object):
     def description(self, a_description: str):
         assert isinstance(a_description, str) or a_description is None, "The description needs to be a str."
         if a_description is None:
-            self._description = ''
+            self._description: str = ''
         else:
             self._description = a_description
 
@@ -140,8 +148,8 @@ class Researcher(object):
                     </div>
                 </div>
             </div>\n
-            """.format(filename=self.filename, fullname=self.name, institute=self.institute,
-                       description=self.description, social=self.format_social())
+            """.format(filename=self.filename.name.replace('.yaml', ''), fullname=self.name,
+                       institute=self.institute, description=self.description, social=self.format_social())
 
     def format_short_person(self):
         return """<div class="col-md-6 col-lg-3">
@@ -156,7 +164,8 @@ class Researcher(object):
                         <p>{institute}</p>
                     </div>
                 </div>
-            </div>\n""".format(filename=self.filename, fullname=self.name, institute=self.institute)
+            </div>\n""".format(filename=self.filename.name.replace('.yaml', ''), fullname=self.name,
+                               institute=self.institute)
 
 
 class Researchers(object):
@@ -196,9 +205,10 @@ class Researchers(object):
         assert not ((filename is not None) and (name is not None)), \
                "Only one, either 'filename' or 'name', must be provided."
         if filename is not None:
-            index = [r.filename for r in self._researchers].index(filename)
+            index = [r.filename.name for r in self._researchers].index(filename)
         elif name is not None:
-            index = [r.filename for r in self._researchers].index(filename)
+            index = [r.name for r in self._researchers].index(name)
+
         return self._researchers.pop(index)
 
     def with_role(self, role):
@@ -211,17 +221,17 @@ class Researchers(object):
         assert isinstance(new_researcher, Researcher)
         self._researchers.append(new_researcher)
 
-    def get_researchers(self, path='../team/*.yaml', verbose=False):
-        all_people = [p for p in glob.glob(path) if 'template' not in p]
+    def get_researchers(self, path='../team', verbose=False):
+        all_people = [p for p in Path(path).glob('*.yaml') if 'template' not in p.name]
         if verbose:
-            print("People found in the team:")
+            logger.info("People found in the team:")
 
         for one_person in all_people:
             with open(one_person, 'r') as personfile:
                 data = yaml.load(personfile, Loader=yaml.loader.SafeLoader)
                 person = Researcher()
                 person.name = data['name']
-                person.filename = Path(one_person).stem
+                person.filename = Path(one_person)
                 person.role = data['role']
                 person.institute = data['institute']
                 person.description = data['description']
@@ -229,7 +239,7 @@ class Researchers(object):
                     if socialmedia in data:
                         person.add_link(socialmedia, data[socialmedia])
             if verbose:
-                print(f"{person.role}: {person.name} ({person.institute})")
+                logger.info(f"{person.role}: {person.name} ({person.institute})")
 
             self.add_researcher(person)
 
@@ -256,29 +266,43 @@ class Researchers(object):
 
         with open(html_template, 'r') as template:
             if verbose:
-                print(f"Reading html template file {html_template}")
+                logger.info(f"Reading html template file {html_template}")
 
             full_html = ''.join(template.readlines())
             full_html = full_html.replace('{{content}}', s)
 
         if verbose:
-            print(f"Writting html information to {output_html} "
-                  f"({'exists' if os.path.isfile(output_html) else 'does not exist'})")
+            logger.info(f"Writting html information to {output_html} "
+                        f"({'exists' if os.path.isfile(output_html) else 'does not exist'})")
 
         with open(output_html, 'w') as outhtml:
             outhtml.write(full_html)
 
 
-def main(verbose=False):
+def main(team_dir='../team', template='../templates/team_template.html', output='../team.html', verbose=False):
     try:
         p = Researchers()
-        p.get_researchers(verbose=verbose)
-        p.merge_people_in_html('../templates/team_template.html', '../team.html', verbose)
+        p.get_researchers(path=team_dir, verbose=verbose)
+        p.merge_people_in_html(template, output, verbose)
     except Exception:
-        print('*** Error occurred while processing persons.')
+        logger.error('*** Error occurred while processing persons.')
         traceback.print_exc()
         sys.exit(1)
 
 
 if __name__ == '__main__':
-    main(verbose=True)
+    usage = "%(prog)s [-h]  parse_article.py"
+    description = "Creates the blog posts based on the current yaml posts files"
+    parser = argparse.ArgumentParser(description=description, prog="", usage=usage)
+    parser.add_argument('-t', '--template', type=str, default='../templates/team_template.html',
+                        help='team.html template file.')
+    parser.add_argument('-o', '--output', type=str, default='../team.html',
+                        help='team.html file to be created.')
+    parser.add_argument('-d', '--dir', type=str, default='../team/',
+                        help='Directory that contains all people.')
+    parser.add_argument('-v', '--verbose', action='store_true', default=False)
+
+
+    args = parser.parse_args()
+
+    main(args.dir, args.template, args.output, args.verbose)

@@ -25,7 +25,7 @@ def main(index_template='../templates/index_template.html', output_html='../inde
         if Path.cwd().name == 'scripts':
             p.get_researchers(verbose=True)
         else:
-            p.get_researchers(path='team/*.yaml', verbose=True)
+            p.get_researchers(path='team/', verbose=True)
 
         logger.info(f"There are {len(p)} researchers.")
         str_team = ''
@@ -35,9 +35,10 @@ def main(index_template='../templates/index_template.html', output_html='../inde
         #         str_team += person.format_short_person()
 
         # New code where, except Jason, now they are all shorted by surname
-        str_team += p.pop(filename='hessels').format_short_person()
+        str_team += p.pop(name='Jason Hessels').format_short_person()
         for person in p.researchers:
-            str_team += person.format_short_person()
+            if person.role != 'former':
+                str_team += person.format_short_person()
 
         # Now it gets the same but for the latest 6 posts
         p = particles.Posts()

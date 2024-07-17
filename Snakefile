@@ -15,53 +15,20 @@ rule all:
     input:
         expand("blog/{yaml_file}", yaml_file=[afile.name.replace('.yaml', '.html') for afile in blog_entries]),
         expand("{person_entry}", person_entry=team_entries)
-    # output:
-    #     "index.html"
+    output:
+        "index.html",
+        "team.html",
+        "blog.html"
     shell:
-        "python3 scripts/parse_index.py -t templates/index_template.html -o index.html"
+        """
+        python3 scripts/parse_article.py -t templates/blog_template.html -o blog.html -i templates/blog-item-template.html -d blog/ -p posts/ -v  |
+        python3 scripts/parse_teams.py -t templates/team_template.html -o team.html -d team/ -v  |
+        python3 scripts/parse_index.py -t templates/index_template.html -o index.html
+        """
     # run:
         # """
         #
         # from scripts import parse_index as pindex
         # pindex.main(index_template='templates/index_template.html', output_html='index.html', verbose=True)
         # """
-
-
-rule blog_entries:
-    input: "posts/{entry}.yaml"
-    output: blog_entries="blog/{entry}.html"
-    shell:
-        "python3 scripts/parse_article.py -t templates/blog_template.html -o blog.html -i templates/blog-item-template.html -d blog/ -p posts/ -v"
-    # run:
-    #     """
-    #     from scripts import parse_article as pblog
-    #     try:
-    #         p = pblog.Posts()
-    #         p.get_posts(verbose=True)
-    #         p.sort(reverse=True)
-    #     except Exception:
-    #         print('*** Error occurred while processing posts.')
-    #         sys.exit(1)
-    #
-    #    pblog.merge_posts_in_html(p, 'templates/blog_template.html', 'blog.html',
-    #                    'templates/blog-item-template.html', 'blog/', True)
-    #    """
-
-
-rule team_entries:
-    input: "team/{entry}.yaml"
-    run:
-        """
-        from scripts import parse_team as pteam
-        try:
-            p = pteam.Researchers()
-            p.get_researchers(verbose=verbose)
-            p.merge_people_in_html('templates/team_template.html', 'team.html', True)
-        except Exception:
-            print('*** Error occurred while processing persons.')
-            sys.exit(1)
-        """
-
-
-
 
