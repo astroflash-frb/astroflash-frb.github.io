@@ -262,7 +262,6 @@ class Posts(object):
             print("Found the following blog posts:")
 
         for a_post in all_posts:
-            print(f"I am here!!!!      {a_post=}")
             with open(a_post, 'r') as postfile:
                 data = yaml.load(postfile, Loader=yaml.loader.SafeLoader)
                 post: Post = Post(yaml=a_post[a_post.rindex('/')+1:], title=data['title'],
