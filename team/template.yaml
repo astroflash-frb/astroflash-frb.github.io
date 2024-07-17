@@ -1,7 +1,7 @@
 # YAML template for a member of the AstroFlash team
 # The following fields are mandatory:
 # - name: Full name (first name and surname)
-# - role: leader / staff / postdoc / phd / master
+# - role: leader / staff / postdoc / phd / master / affiliated / former
 # - insitute: XX
 # - description: a two-line description of the person.
 #
