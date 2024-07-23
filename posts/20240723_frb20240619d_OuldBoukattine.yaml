@@ -10,8 +10,9 @@ date: 2027-07-23
 # Category: can be "paper", "atel", "talk"
 category: atel
 # filename with the image to be shown in the header of the post. general.jpg will put the default one
-image: "20240723_frb20240619d_OuldBoukattine.png"
-caption: "Incoherently dedispersed dynamic spectrum (bottom) and frequency-averaged time-series (top) of a burst from FRB 20240619D detected with the Westerbork RT1 25-m telescope at a central frequency of 1.27 GHz. The data are dedispersed using DM = 464.87 pc cm<sup>-3</sup>. The time and frequency resolutions are labeled in the figure. The arrival time of the burst at infinite frequency at the Solar System barycentre is MJD 60511.994415889 (TDB)."
+image: "20240723_frb20240619d_OuldBoukattine.jpg"
+# Caption for the image (optional)
+caption: Incoherently dedispersed dynamic spectrum (bottom) and frequency-averaged time-series (top) of a burst from FRB 20240619D detected with the Westerbork RT1 25-m telescope at a central frequency of 1.27 GHz. The data are dedispersed using DM = 464.87 pc cm<sup>-3</sup>. The time and frequency resolutions are labeled in the figure. The arrival time of the burst at infinite frequency at the Solar System barycentre is MJD 60511.994415889 (TDB).
 # Link to the website with more information. e.g. it can be the ADS url, or ATel page, etc.
 link: "https://www.astronomerstelegram.org/?read=16565"
 # Final line in the post, if it is a publication, put the reference in a format similat to SAO/ADS
