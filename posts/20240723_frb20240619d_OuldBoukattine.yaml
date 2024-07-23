@@ -1,0 +1,22 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+# Title of the post
+title: A bright burst detection from FRB 20240619D at 1.3 GHz using the  Westerbork-RT1 25-m telescope
+# First name of the author of the post (only first name)
+author:
+# Date of the post in YYYY-MM-DD format
+date: 2027-07-23
+# Category: can be "paper", "atel", "talk"
+category: atel
+# filename with the image to be shown in the header of the post. general.jpg will put the default one
+image: general.jpg
+# Caption for the image (optional)
+caption:
+# Link to the website with more information. e.g. it can be the ADS url, or ATel page, etc.
+link: ads-link
+# Final line in the post, if it is a publication, put the reference in a format similat to SAO/ADS
+# e.g.  Name et al. 1999, Journal, issue, page
+reference:
+# Write here the body of the post. Some characters may break the parsing, so you can use quotes for the full body.
+body:
