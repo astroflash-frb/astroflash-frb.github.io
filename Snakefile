@@ -13,7 +13,8 @@ team_entries = [p for p in Path().glob("team/*.yaml") if "template" not in p.nam
 
 rule all:
     input:
-        expand("blog/{yaml_file}", yaml_file=[afile.name for afile in blog_entries]),
+        # expand("blog/{yaml_file}", yaml_file=[afile.name for afile in blog_entries]),
+        expand("{yaml_file}", yaml_file=[str(afile) for afile in blog_entries]),
         expand("{person_entry}", person_entry=team_entries)
     output:
         "index.html",
