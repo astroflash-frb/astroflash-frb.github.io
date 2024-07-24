@@ -22,6 +22,7 @@ rule all:
         "blog.html"
     shell:
         """
+        rm -rf ./index.html ./blog.html ./team.html
         python3 scripts/parse_article.py -t templates/blog_template.html -o blog.html -i templates/blog-item-template.html -d blog/ -p posts/ -v  |
         python3 scripts/parse_teams.py -t templates/team_template.html -o team.html -d team/ -v  |
         python3 scripts/parse_index.py -t templates/index_template.html -o index.html
