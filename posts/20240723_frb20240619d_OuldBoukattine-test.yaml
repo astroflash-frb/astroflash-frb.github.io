@@ -1,0 +1,30 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+# Title of the post
+title: "TEST A bright burst detection from FRB 20240619D at 1.3 GHz using the  Westerbork-RT1 25-m telescope"
+# First name of the author of the post (only first name)
+author: Omar
+# Date of the post in YYYY-MM-DD format
+date: 2024-07-24
+# Category: can be "paper", "atel", "talk"
+category: atel
+# filename with the image to be shown in the header of the post. general.jpg will put the default one
+image: "20240723_frb20240619d_OuldBoukattine-test.jpg"
+# Caption for the image (optional)
+caption: "TEST Incoherently dedispersed dynamic spectrum (bottom) and frequency-averaged time-series (top) of a burst from FRB 20240619D detected with the Westerbork RT1 25-m telescope at a central frequency of 1.27 GHz. The data are dedispersed using DM = 464.87 pc cm<sup>-3</sup>. The time and frequency resolutions are labeled in the figure. The arrival time of the burst at infinite frequency at the Solar System barycentre is MJD 60511.994415889 (TDB)."
+# Link to the website with more information. e.g. it can be the ADS url, or ATel page, etc.
+link: "https://www.astronomerstelegram.org/?read=16732"
+# Final line in the post, if it is a publication, put the reference in a format similat to SAO/ADS
+# e.g.  Name et al. 1999, Journal, issue, page
+reference: "Ould-Boukattine et al. 2024, The Astronomer's Telegram, No. 16732."
+# Write here the body of the post. Some characters may break the parsing, so you can use quotes for the full body.
+body: "TEST We report on the detection of a bright burst originating from the MeerKAT-discovered, repeating FRB 20240619D (ATel #16690) using the Westerbork RT-1 25-m telescope at a central frequency of 1.27 GHz (L-band) and with 128-MHz bandwidth. <br><br>
+The preliminary properties of the burst are:<br>
+Arrival time (MJD, TDB): 60511.994415889 <br>
+Fluence: 690 +/- 138 Jy ms <br>
+Dispersion measure (DM): 464.87 +/- 0.11 pc cm<sup>-3</sup> <br><br>
+Due to the high signal-to-noise ratio and the presence of sharp features (< 200 microsec) in the burst we are able to accurately and precisely determine the DM by making use of the structure-optimizing code DM-phase (Seymour 2019). We note that the burst is broadened due to dispersive smearing within the channels. The residual smearing within a frequency channel ranges from ~101 microsec at the top to ~137 microsec at the bottom of the observing band. The voltage data of the burst was saved, which will allow us to study the burst at higher time resolution with coherent dedispersion.<br><br>
+Our reported DM is ~15 units lower compared to the DMs (486.8, 480.7 and 471.9 pc cm<sup>-3</sup>) of the bursts reported by the MeerTRAP team (ATel #16690). These three previous DM values were determined by maximizing the relatively low signal-to-noise ratio of unstructured bursts, and may therefore overestimate the dispersion measure.<br><br>
+The arrival time is referenced to infinite frequency at the Solar System barycentre (in TDB), and assuming a DM constant of 1/(2.41 x 10<sup>-4</sup>) MHz<sup>2</sup> pc<sup>-1</sup> cm<sup>-3</sup> s. We measure the fluence of the burst by averaging over the entire observing bandwidth and applying the radiometer equation using a system equivalent flux density (SEFD) of 420 Jy. The error on the fluence is roughly 20% and arises from the uncertainty on the SEFD of the telescope.<br><br>
+As a result of the low elevation of the source, we are only able to observe for ~3 hours per day. Up until the burst detection we observed for 26 hours at L-band and 22 hours at P-band (0.33 GHz). Our detection thresholds for 8-sigma events correspond to a fluence of ~10 Jy ms for L-band and ~80 Jy ms for P-band. Thus far we have not detected a burst at P-band. The detection of a bright burst after limited exposure hours (and with relatively low sensitivity) could indicate that the source is highly active. We therefore encourage follow-up observations at all wavelengths."
