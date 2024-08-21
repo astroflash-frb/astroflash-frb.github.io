@@ -11,6 +11,9 @@ To keep the information up to date, **it is not needed to modify any of the .htm
 Their corresponding files under `templates/` (`blog_template.html`, `index_template.html`, and `team_template.html`) should be the ones modified instead (and only if you want to change the _style_ of the pages).
 
 
+Once you update all necessary changes, you can run `snakemake` at the project directory and all new files will be propagated into the main html files.
+This is, in principle, done also automatically via an action in GitHub when pushing the new files, but sometimes it may not fully work (reasons yet to be understood).
+
 
 ### Writing a new post entry
 
