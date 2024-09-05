@@ -13,9 +13,9 @@ import argparse
 import traceback
 from pathlib import Path
 
-_ROLES = {'leader': 'Group Leader', 'staff': 'Staff', 'postdoc': 'PostDoc',
-          'phd': 'PhD students', 'master': 'Master & Bachelor Students',
-          'affiliated': 'Affiliated', 'former': 'Former Members'}
+_ROLES = {'leader': 'Principal Investigators', 'staff': 'Associated Staff', 'postdoc': 'Postdoctoral Researchers',
+          'phd': 'PhD Students', 'master': 'Master & Bachelor Students',
+          'affiliated': 'Affiliated Members', 'former': 'Former Members'}
 
 logging.basicConfig(level=logging.INFO,
                     format="%(levelname)s : %(asctime)s - %(message)s",
