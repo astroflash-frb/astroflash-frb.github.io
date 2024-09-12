@@ -14,7 +14,7 @@ import traceback
 from pathlib import Path
 
 _ROLES = {'leader': 'Principal Investigators', 'staff': 'Associated Staff', 'postdoc': 'Postdoctoral Researchers',
-          'phd': 'PhD Students', 'master': 'Master & Bachelor Students',
+          'phd': 'PhD Candidates', 'master': 'Master & Bachelor Students',
           'affiliated': 'Affiliated Members', 'former': 'Former Members'}
 
 logging.basicConfig(level=logging.INFO,
