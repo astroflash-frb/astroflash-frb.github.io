@@ -14,7 +14,7 @@ image: "20241023_frb20240209a_ouldboukattine.jpg"
 # Caption for the image (optional)
 caption: "Incoherently dedispersed dynamic spectrum (bottom) and frequency-averaged time-series (top) of a burst from FRB 20240209A detected with the Westerbork RT1 25-m telescope at a central frequency of 1.27 GHz. The white vertical lines are masked channels at the edges of the subbands. The data are dedispersed using DM = 174.16 pc cm<sup>-3</sup>. The time and frequency resolutions are labeled in the figure. The arrival time of the burst at infinite frequency at the Solar System barycentre is MJD 60601.5954629439 (TDB, correcting for the quoted DM)."
 # Link to the website with more information. e.g. it can be the ADS url, or ATel page, etc.
-link: "https://www.astronomerstelegram.org/?read=16670"
+link: "https://www.astronomerstelegram.org/?read=16873"
 # Final line in the post, if it is a publication, put the reference in a format similat to SAO/ADS
 # e.g.  Name et al. 1999, Journal, issue, page
 reference: "Ould-Boukattine et al. 2024, The Astronomer's Telegram, No. XXXXX."
