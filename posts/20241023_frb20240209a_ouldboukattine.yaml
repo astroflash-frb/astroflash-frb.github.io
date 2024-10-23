@@ -1,0 +1,29 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+# Title of the post
+title: "A burst detection from FRB 20240209A at 1.3 GHz using the Westerbork-RT1 25-m telescope"
+# First name of the author of the post (only first name)
+author: Omar
+# Date of the post in YYYY-MM-DD format
+date: 2024-10-23
+# Category: can be "paper", "atel", "talk"
+category: atel
+# filename with the image to be shown in the header of the post. general.jpg will put the default one
+image: "20241023_frb20240209a_ouldboukattine.jpg"
+# Caption for the image (optional)
+caption: "Incoherently dedispersed dynamic spectrum (bottom) and frequency-averaged time-series (top) of a burst from FRB 20240209A detected with the Westerbork RT1 25-m telescope at a central frequency of 1.27 GHz. The white vertical lines are masked channels at the edges of the subbands. The data are dedispersed using DM = 174.16 pc cm<sup>-3</sup>. The time and frequency resolutions are labeled in the figure. The arrival time of the burst at infinite frequency at the Solar System barycentre is MJD 60601.5954629439 (TDB)."
+# Link to the website with more information. e.g. it can be the ADS url, or ATel page, etc.
+link: "https://www.astronomerstelegram.org/?read=16670"
+# Final line in the post, if it is a publication, put the reference in a format similat to SAO/ADS
+# e.g.  Name et al. 1999, Journal, issue, page
+reference: "Ould-Boukattine et al. 2024, The Astronomer's Telegram, No. XXXXX."
+# Write here the body of the post. Some characters may break the parsing, so you can use quotes for the full body.
+body: "We report on the detection of a fast radio burst (FRB) originating from the CHIME/FRB-discovered source FRB 20240209A (ATels #16670, 16682, 16687). We discovered the burst using the 25-m Westerbork RT-1 telescope observing at a central frequency of 1.27 GHz (L-band) with a 128-MHz bandwidth. This detection marks the highest frequency at which the source has been observed, confirming that the source is active and detectable at L-band.<br><br>
+The preliminary properties of the burst are:<br>
+Arrival time (MJD, TDB): 60601.595462943 <br>
+Fluence: 32 +/- 6 Jy ms <br>
+Dispersion measure (DM): 174.16 +/- 0.1 pc cm<sup>-3</sup> <br><br>
+The arrival time is referenced to infinite frequency at the Solar System barycentre (in TDB), and assuming a DM constant of 1/(2.41 x 10<sup>-4</sup>) MHz<sup>2</sup> pc<sup>-1</sup> cm<sup>-3</sup> s. We estimate the fluence by averaging over the full observing bandwidth and applying the radiometer equation using a system equivalent flux density (SEFD) of 420 Jy. The error on the fluence is roughly 20% and arises from the uncertainty on the SEFD of the telescope. Using the DM reported in the discovery ATel (176.57 +/- 0.03 pc cm<sup>-3</sup>) to account for the dispersive delay resulted in an overcorrection. The DM we use was determined by the burst-searching algorithm Heimdall. It is not clear yet whether the difference in DM is true temporal evolution or arises from underlying complex burst structure. The voltage data of the burst was saved, which will allow us to study the full polarimetric properties of the burst with coherent dedispersion.<br><br>
+Since its discovery in June 2024, we have been monitoring this FRB as part of the HyperFlash program (High-Cadence FRB Monitoring with European Radio Dishes). Up to the publication of this ATel, we have accumulated 500 hours of observing time, spread across observations at central frequencies of 330 MHz (P-band, 150h) and 1.4 GHz (L-band, 350h). Our average detection threshold at L-band for the various telescopes is ~6 Jy ms. Thus far, no bursts have been detected at P-band above our detection limit at ~50 Jy ms. We will continue to monitor this source. Besides with CHIME/FRB, FRB 20240209A was so far only reported to be detected by the Northern Cross telescope at a central frequency of 408 MHz (ATel #16692). <br><br>
+Over the past week, FRB 20240209A has been detected multiple times by CHIME/FRB, as reported by the CHIME/FRB VOEvent Service and on their (<a href='https://www.chime-frb.ca/repeaters'>public website</a>). The recent detections by CHIME/FRB, combined with our own, suggests that the source is in a state of heightened activity. We therefore encourage follow-up observations across all wavelengths."
