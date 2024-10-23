@@ -17,7 +17,7 @@ caption: "Incoherently dedispersed dynamic spectrum (bottom) and frequency-avera
 link: "https://www.astronomerstelegram.org/?read=16873"
 # Final line in the post, if it is a publication, put the reference in a format similat to SAO/ADS
 # e.g.  Name et al. 1999, Journal, issue, page
-reference: "Ould-Boukattine et al. 2024, The Astronomer's Telegram, No. XXXXX."
+reference: "Ould-Boukattine et al. 2024, The Astronomer's Telegram, No. 16873."
 # Write here the body of the post. Some characters may break the parsing, so you can use quotes for the full body.
 body: "
 We report on the detection of a fast radio burst (FRB) originating from the CHIME/FRB-discovered source FRB 20240209A (ATels <a href='https://www.astronomerstelegram.org/?read=16670'>#16670</a>, <a href='https://www.astronomerstelegram.org/?read=16682'>#16682</a>, <a href='https://www.astronomerstelegram.org/?read=16687'>#16687</a>). We detected the burst using the 25-m Westerbork RT-1 telescope observing at a central frequency of 1.27 GHz (L-band) with a 128-MHz bandwidth (see <a href='https://ui.adsabs.harvard.edu/abs/2024NatAs...8..337K/abstract'>Kirsten et al. 2024</a> for more details on the observational setup). This detection marks the highest frequency at which the source has been observed, demonstrating that the source is active and detectable at L-band.<br><br>
