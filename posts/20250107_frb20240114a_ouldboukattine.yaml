@@ -10,7 +10,7 @@ date: 2025-01-07
 # Category: can be "paper", "atel", "talk"
 category: atel
 # filename with the image to be shown in the header of the post. general.jpg will put the default one
-image: "20241023_frb20240209a_ouldboukattine.jpg"
+image: "20250107_frb20240114a_ouldboukattine.jpg"
 # Caption for the image (optional)
 caption: "Incoherently dedispersed dynamic spectrum (bottom) and frequency-averaged time-series (top) of three bursts from FRB 20240114A detected by HyperFlash using the Torun and Westerbork RT1 telescopes. The data are dedispersed using DM = 527.8 pc cm<sup>-3</sup>. The time and frequency resolutions are labeled in the figure."
 # Link to the website with more information. e.g. it can be the ADS url, or ATel page, etc.
