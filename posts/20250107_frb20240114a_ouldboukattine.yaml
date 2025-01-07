@@ -14,10 +14,10 @@ image: "20250107_frb20240114a_ouldboukattine.jpg"
 # Caption for the image (optional)
 caption: "Incoherently dedispersed dynamic spectrum (bottom) and frequency-averaged time-series (top) of three bursts from FRB 20240114A detected by HyperFlash using the Torun and Westerbork RT1 telescopes. The data are dedispersed using DM = 527.8 pc cm<sup>-3</sup>. The time and frequency resolutions are labeled in the figure."
 # Link to the website with more information. e.g. it can be the ADS url, or ATel page, etc.
-link: "https://www.astronomerstelegram.org/?read=16873"
+link: "https://www.astronomerstelegram.org/?read=16967"
 # Final line in the post, if it is a publication, put the reference in a format similat to SAO/ADS
 # e.g.  Name et al. 1999, Journal, issue, page
-reference: "Ould-Boukattine et al. 2024, The Astronomer's Telegram, No. ."
+reference: "Ould-Boukattine et al. 2024, The Astronomer's Telegram, No. 16967"
 # Write here the body of the post. Some characters may break the parsing, so you can use quotes for the full body.
 body: "
 We report on the detection of 8 high-fluence bursts within 7 days originating from FRB 20240114A. FRB 20240114A was initially discovered and reported on by the CHIME/FRB Collaboration (ATel <a href='https://www.astronomerstelegram.org/?read=16420'>#16420</a>) and has subsequently been detected and localized by a variety of other telescopes (see e.g. ATels <a href='https://www.astronomerstelegram.org/?read=16433'>#16433</a>, <a href='https://www.astronomerstelegram.org/?read=16434'>#16434</a>, <a href='https://www.astronomerstelegram.org/?read=16542'>#16542</a>, <a href='https://www.astronomerstelegram.org/?read=16446'>#16446</a>, <a href='https://www.astronomerstelegram.org/?read=16597'>#16597</a>, <a href='https://www.astronomerstelegram.org/?read=16599'>#16599</a>, <a href='https://www.astronomerstelegram.org/?read=16620'>#16620</a> and references therein). <br><br>
