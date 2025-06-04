@@ -45,7 +45,7 @@ jobs:
       run: |
         #cd actions
         #bash ./parse_all.sh
-        snakemake
+        snakemake --cores 1 --forceall
         
 
   # Single deploy job since we're just deploying
