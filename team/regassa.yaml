@@ -1,0 +1,25 @@
+# YAML template for a member of the team
+# The following fields are mandatory:
+# - name: Full name
+# - role: leader / staff / postdoc / phd / master
+# - insitute: XX
+# - description: a two-line description of the person.
+#
+# The page will assume that there is a (squared) image of the person named the same as this file, with jpg extension
+#
+# The following fields are optional, and should contain a full link to the different Social Media
+# or author pages.
+# - github
+# - gitlab
+# - facebook
+# - twitter
+# - linkedin
+# - personal webpage
+#
+# Ask Benito in case you want any other one.
+---
+name: Ninisha Manaswini
+role: affiliated
+institute: MSc Student, Space Science and Geospatial Institute, Ethiopia
+description: Former ASPIRE student at UvA (2025), working on searches for transients in the image-plane with LOFAR. Program Manager at the Ethiopian Space Science Society and National Astronomy Education Coordinator under the IAU Office of Astronomy for Education and working on MSc thesis about AGN characterization using multi-wavelength SED fitting.
+linkedin: http://www.linkedin.com/in/lidia-dinsa
