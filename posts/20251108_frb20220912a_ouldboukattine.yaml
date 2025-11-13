@@ -1,0 +1,20 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+# Title of the post
+title: "A probe of the maximum energetics of fast radio bursts through a prolific repeating source"
+# First name of the author of the post (only first name)
+author: Omar
+# Date of the post in YYYY-MM-DD format
+date: 2025-11-08
+# Category: can be "paper", "atel", "talk"
+category: paper
+# filename with the image to be shown in the header of the post. general.jpg will put the default one
+image: "20251108_frb20220912a_ouldboukattine.jpg"
+# Link to the website with more information. e.g. it can be the ADS url, or ATel page, etc.
+link: https://ui.adsabs.harvard.edu/#abs/2024arXiv241017024O/abstract
+# Final line in the post, if it is a publication, put the reference in a format similat to SAO/ADS
+# e.g.  Name et al. 1999, Journal, issue, page
+reference: "Ould-Boukattine, O.S., et al. 2025, MNRAS"
+# Write here the body of the post. Some characters may break the parsing, so you can use quotes for the full body.
+body: "Fast radio bursts (FRBs) are sufficiently energetic to be detectable from luminosity distances up to at least seven billion parsecs (redshift z>1). Probing the maximum energies and luminosities of FRBs constrains their emission mechanism and cosmological population. Here we investigate the maximum energetics of a highly active repeater, FRB 20220912A, using 1,500h of observations. We detect 130 high-energy bursts and find a break in the burst energy distribution, with a flattening of the power-law slope at higher energy. This is consistent with the behaviour of another highly active repeater, FRB 20201124A. Furthermore, we model the rate of the highest-energy bursts and find a turnover at a characteristic spectral energy density of <p>E<sup>char</sup><sub>&nu;</sub> = 2.09<sup>+3.78</sup><sub>-1.04</sub>&times;10<sup>32</sup> erg Hz<sup>-1</sup></p>. This characteristic maximum energy agrees well with observations of apparently one-off FRBs, suggesting a common physical mechanism for their emission. The extreme burst energies push radiation and source models to their limit."
