@@ -1,0 +1,27 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+# Title of the post
+title: "HyperFlash and ECLAT detect a high-fluence burst from FRB 20251229A at 1.4 GHz"
+# First name of the author of the post (only first name)
+author: Omar
+# Date of the post in YYYY-MM-DD format
+date: 2026-01-09
+# Category: can be "paper", "atel", "talk"
+category: atel
+# filename with the image to be shown in the header of the post. general.jpg will put the default one
+image: "20260109_frb20251229a_ouldboukattine.jpg"
+caption: "Dynamic spectra (bottom) and frequency-averaged time series (top) of the same burst from FRB 20251229A detected by the Nancay, Torun and Westerbork radio telescopes. The data are incoherently dedispersed using DM = 192.9 pc cm<sup>-3</sup>. The time and frequency resolutions are indicated in the figure. Due to an incorrect pointing epoch at NRT, the telescope was offset by 1 degree from the CHIME/FRB position, resulting in a much fainter detection. The arrival time of the burst at infinite frequency at the Solar System barycentre is MJD 61048.555753859 (TDB)."
+# Link to the website with more information. e.g. it can be the ADS url, or ATel page, etc.
+link: https://www.astronomerstelegram.org/?read=17588
+# Final line in the post, if it is a publication, put the reference in a format similat to SAO/ADS
+# e.g.  Name et al. 1999, Journal, issue, page
+reference: "Puchalska et al. 2026, The Astronomer's Telegram, No. 17588."
+# Write here the body of the post. Some characters may break the parsing, so you can use quotes for the full body.
+body: "We report on the detection of a high-fluence burst originating from the CHIME/FRB-discovered repeating FRB 20251229A (ATel #17574). The single burst was co-detected with three European radio telescopes: the 32-m Torun telescope and the 25-m Westerbork RT-1 telescope as part of the HyperFlash monitoring program, and the Nancay Radio Telescope (NRT) as part of the ECLAT observing program. <br><br> Our first HyperFlash observation was on 5 January at 07:20 UT. Since then, we have conducted daily monitoring with Westerbork for up to 12 hours per day and with Torun for up to 4 hours per day. By 8 January, this resulted in a total of 47 hours on source after accounting for overlap between the two telescopes. The fluence completeness limits of Westerbork and Torun are comparable, at roughly 15 Jy ms. Our observing strategy has most recently been described in <a href='https://ui.adsabs.harvard.edu/abs/2025arXiv250916374O/abstract'>Ould-Boukattine et al. 2025</a>. <br><br> 
+With the NRT, we have so far carried out a single one-hour observation. The NRT is comparable in sensitivity to a ~100-m-class radio telescope, and our search set-up and strategy have previously been described in <a href='https://ui.adsabs.harvard.edu/abs/2023MNRAS.526.2039H/abstract'>Hewitt et al. 2023</a>. Due to an incorrect pointing epoch, the telescope was offset by 1 degree from the CHIME/FRB position. As a result, the detected signal is much fainter than expected, though still above our detection threshold. <br><br>
+The preliminary properties of the burst as derived from the Torun detection: <br><br>
+Arrival time (MJD, TDB): 61048.555753859 <br>
+Fluence: 163 +/- 33 Jy ms <br><br>
+We reference the arrival time to infinite frequency using a dispersion measure (DM) of 192.9 pc cm<sup>-3</sup> which maximizes the burst’s peak S/N, and adopt a dispersion constant of 1/(2.41 x 10<sup>-4</sup>) MHz<sup>2</sup> pc<sup>-1</sup> cm<sup>-3</sup> s. The fluence is measured by averaging over the full 128-MHz observing bandwidth after excising channels affected by radio frequency interference (RFI), and by applying the radiometer equation with a system equivalent flux density (SEFD) of 300 Jy. We assume a 20% uncertainty on the SEFD, which is propagated into the quoted fluence uncertainty. <br>
+HyperFlash and ECLAT will continue to monitor FRB 20251229A, and we encourage further observations across all wavelengths."
