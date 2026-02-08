@@ -13,7 +13,7 @@ import argparse
 import traceback
 from pathlib import Path
 
-_ROLES = {'leader': 'Principal Investigators', 'staff': 'Associated Staff', 'postdoc': 'Postdoctoral Researchers',
+_ROLES = {'leader': 'Principal Investigators & Program Manager', 'staff': 'Associated Staff', 'postdoc': 'Postdoctoral Researchers',
           'phd': 'PhD Candidates', 'master': 'Master & Bachelor Students',
           'affiliated': 'Affiliated Members', 'former': 'Former Members'}
 
